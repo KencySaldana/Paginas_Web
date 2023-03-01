@@ -4,7 +4,7 @@ function validar(){
     
  	var openModal = document.querySelector('.btnModal');
 	if (email=="admin@upv.edu.mx" && contrasena=="admin"){
-		window.location = "././pages/forms/index.html";
+		window.location = "././pages/forms/dashboard.html";
 		return false;
 	}else{
 		document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS O ÉRRONEOS!";
