@@ -10,9 +10,7 @@ function subir(){
 
   //Constantes 
   const openModal = document.querySelector('.hola');
-  const modal = document.querySelector('.modal');
-  const closeModal = document.querySelector('.modal__close');
-
+  
   var hobbies="";
   for (a=0; a<6; a++){
     if (document.form1.hobby[a].checked){
@@ -26,13 +24,9 @@ function subir(){
 
     openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.add('modal--show');
+      $('#modal-info').modal('show');
     });
 
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
     return false;
   }
 
@@ -42,12 +36,7 @@ function subir(){
 
     openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.add('modal--show');
-    });
-
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
+      $('#modal-info').modal('show');
     });
     return false;
   }
@@ -58,13 +47,9 @@ function subir(){
 
     openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.add('modal--show');
+      $('#modal-info').modal('show');
     });
 
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
     return false;
   }
 
@@ -74,13 +59,9 @@ function subir(){
 
     openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.add('modal--show');
+      $('#modal-info').modal('show');
     });
 
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
     return false;
   }
 
@@ -88,35 +69,9 @@ function subir(){
   document.getElementById("message").innerHTML = "Nombre: " + nombre+ " "+apellido+ "\nEmail: "+email+"\nContraseña: "+contrasena;
   openModal.addEventListener('click', (e)=>{
     e.preventDefault();
-    modal.classList.add('modal--show');
+    $('#modal-info').modal('show');
   });
 
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
-  });
   return false;
 
-}
-
-function modal(){
-  openModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.add('modal--show');
-  });
-
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
-  });
-  return false;   openModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.add('modal--show');
-  });
-
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
-  });
-  return false;
 }

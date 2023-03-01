@@ -1,117 +1,45 @@
 function validacion_cat(){
-  //Variables de
-  var clave = document.getElementById("usuario").value;
-  var nombre = document.getElementById("nombre").value;
+  //Variables de extracción de datos
+  var clave = document.getElementById("clave").value;
+  var nombre = document.getElementById("nombre_cat").value;
  
-  //Constantes 
-  const openModal = document.querySelector('.btn btn-primary');
-  const modal = document.querySelector('.modal');
-  const closeModal = document.querySelector('.modal__close');
-
-  var hobbies="";
-  for (a=0; a<6; a++){
-    if (document.form1.hobby[a].checked){
-      hobbies+=document.form1.hobby[a].value + ",";
-    }
-  }
-
-  if (usuario==""|| nombre=="" || apellido==""){
+  
+  var openModal = document.querySelector('.hola');
+  
+  if (clave=="" && nombre==""){  
     document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
-    document.getElementById("message").innerHTML = "Por favor rellena todos los campos con asterísco (*)";
-
+    document.getElementById("message").innerHTML = "Por favor rellena todos todos los campos";
     openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.add('modal--show');
+      $('#modal-info').modal('show');
     });
-
-    closeModal.addEventListener('click', (e)=>{
+    return false;
+  }
+  if((clave=="") && (nombre!="")){
+    document.getElementById("titulo").innerHTML = "¡CAMPO CLAVE VACÍO!";
+    document.getElementById("message").innerHTML = "Por favor rellena el campo clave.";
+    openModal.addEventListener('click', (e)=>{
       e.preventDefault();
-      modal.classList.remove('modal--show');
+      $('#modal-info').modal('show');
+    });
+    return false;
+
+  }
+  if((nombre=="" ) && (clave!="")){
+    document.getElementById("titulo").innerHTML = "¡CAMPO NOMBRE VACÍO!";
+    document.getElementById("message").innerHTML = "Por favor rellena el campo nombre.";
+    openModal.addEventListener('click', (e)=>{
+      e.preventDefault();
+      $('#modal-info').modal('show');
     });
     return false;
   }
 
-  if (hobbies.length==0){
-    document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
-    document.getElementById("message").innerHTML = "Debes tener almenos un hobby seleccionado.";
-
-    openModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.add('modal--show');
-    });
-
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
-    return false;
-  }
-
-  if ((contrasena!=confirmContrasena) || (contrasena=="")){
-    document.getElementById("titulo").innerHTML = "¡CONTRASEÑAS INCORRECTAS!";
-    document.getElementById("message").innerHTML = "Las contraseñas deben ser iguales y no deben estar vacías.";
-
-    openModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.add('modal--show');
-    });
-
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
-    return false;
-  }
-
-  if(email=="") {
-    document.getElementById("titulo").innerHTML = "¡EMAIL INVÁLIDO!";
-    document.getElementById("message").innerHTML = "Por favor introduce un email válido.";
-
-    openModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.add('modal--show');
-    });
-
-    closeModal.addEventListener('click', (e)=>{
-      e.preventDefault();
-      modal.classList.remove('modal--show');
-    });
-    return false;
-  }
-
-  document.getElementById("titulo").innerHTML = "¡REGISTRO EXITOSO!";
-  document.getElementById("message").innerHTML = "Nombre: " + nombre+ " "+apellido+ "\nEmail: "+email+"\nContraseña: "+contrasena;
+  document.getElementById("titulo").innerHTML = "¡VALIDACIÓN EXITOSA!";
+  document.getElementById("message").innerHTML = "Los datos fueron guardados con exito.";
   openModal.addEventListener('click', (e)=>{
     e.preventDefault();
-    modal.classList.add('modal--show');
-  });
-
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
-  });
-  return false;
-
-}
-
-function modal(){
-  openModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.add('modal--show');
-  });
-
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
-  });
-  return false;   openModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.add('modal--show');
-  });
-
-  closeModal.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal.classList.remove('modal--show');
+    $('#modal-info').modal('show');
   });
   return false;
 }

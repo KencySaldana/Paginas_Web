@@ -40,7 +40,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index.html" class="nav-link">Dashboard</a>
+        <a href="index.html" class="nav-link">Dashboard</a>
       </li>
     </ul>
 
@@ -138,7 +138,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
               <li class="breadcrumb-item active">Registro de productos</li>
             </ol>
           </div>
@@ -188,6 +188,27 @@
                   </select>
                 </div>
                 <!-- /.form-group -->
+
+                  <div>
+                    <label>Cantidad en toneladas:</label>
+                    <br>
+                  </div>
+                <div class="form-check form-check-inline">
+                  <div>
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+                  <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+                  <br>
+                  <br>
+                </div>
               </div>
               <!-- /.col -->
               <div class="col-md-6">
@@ -227,12 +248,26 @@
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
+                <div>
+                    <label>Sucursal:</label>
+                    <br>
+                  </div>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                  <label class="btn btn-outline-primary" for="btnradio1">Garza</label>
+
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="btnradio2">Centro</label>
+
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="btnradio3">Allende</label>
+                </div>
               </div>
               <!-- /.col -->
             </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button class="btn btn-primary" onclick="">Guardar datos</button>
+            <button class="hi" onclick="validacion_product()">Guardar datos</button>
           </div>
         </div>
         <!-- /.card -->
@@ -250,6 +285,31 @@
     </div>
     <strong>Copyright &copy; 2023 <a href="https://adminlte.io">KencySystem</a>.</strong> All rights reserved.
   </footer>
+
+  <!-- SECCIÓN DE MODALES ----->
+      <div class="modal fade" id="modal-info">
+        <div class="modal-dialog">
+          <div class="modal-content bg-info">
+            <div class="modal-header">
+              <h4 class="modal-title" id="titulo"> </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id ="message"></p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal --> 
+
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -342,6 +402,6 @@
   
   
 </script>
-</script>
+<script src="../../dist/js/validacion_productos.js"></script>
 </body>
 </html>

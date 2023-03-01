@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KencySystem | Dashboard</title>
+  <title>KencySystem | Categoría</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="../../plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/modal.css">
   
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -45,7 +46,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Dashboard</a>
+        <a href="index.html" class="nav-link">Dashboard</a>
       </li>
     </ul>
 
@@ -143,7 +144,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../index.html">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
               <li class="breadcrumb-item active">Registro de categoría de productos</li>
             </ol>
           </div>
@@ -192,13 +193,39 @@
                   <!-- /.input group -->
                 </div>
                 <!-- /.form group -->
+
+                <div class="form-check">
+                  <div>
+                  <label>Disponible en:</label>
+                </div>
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Sucursal del Norte
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Sucursal del Sur
+                  </label>
+                </div>
+                <div>
+                  <div>
+                    <br>
+                    <label for="customRange2" class="form-label">Tiempo en exhibición(meses)</label>
+                  </div>
+                  <div>
+                    <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 100%";>
+                  </div>
+                </div>
               </div>
               <!-- /.col -->
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Categorias existentes</label>
                   <div>
-                    <select class="listbox" name="categoria" size=4 style="width: 100%;>
+                    <select class="listbox" name="categoria" size=4 style="width: 100%;">
                       <option value="Visa">Lácteos</option>
                       <option value="Mastercard">Origen animal</option>
                       <option value="American Express">Enlatados</option>
@@ -206,6 +233,26 @@
                       <option value="American Express">Pastas</option>
                       <option value="American Express">Salsas</option>
                     </select>
+                </div>
+                <div class="form-check form-switch">
+                  <br>
+                  <div>
+                    <label>Características:</label>
+                  </div>
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Frágil</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Líquido</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+                  <label class="form-check-label" for="flexSwitchCheckDisabled">Venta por kilo</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                  <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Venta por caja</label>
                 </div>
               </div>
               <!-- /.col -->
@@ -215,35 +262,34 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <button type="button" class="btn btn-primary" >
-                  Guardar Datos
-                </button>
+            <button type="button" class="hola" onclick="validacion_cat()">Guardar datos</button>
           </div>
         </div>
         <!-- /.card -->
       </div>
-      <div class="modal fade" id="modal-default">
+
+      <!-- SECCIÓN DE MODALES ----->
+      <div class="modal fade" id="modal-info">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content bg-info">
             <div class="modal-header">
-              <h4 class="modal-title">Default Modal</h4>
+              <h4 class="modal-title" id="titulo"> </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>One fine body&hellip;</p>
+              <p id ="message"></p>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
             </div>
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
-      <!-- /.modal -->
+      <!-- /.modal --> 
 
 
      <!-- /.content-wrapper -->
@@ -294,5 +340,6 @@
 <script src="../../plugins/toastr/toastr.min.js"></script>
 
 <!-- Page specific script -->
+<script src="../../dist/js/validacion_categoria.js"></script>
 </body>
 </html>
