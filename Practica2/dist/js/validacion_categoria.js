@@ -3,9 +3,11 @@ function validacion_cat(){
   var clave = document.getElementById("clave").value;
   var nombre = document.getElementById("nombre_cat").value;
  
-  
+  //Consulta de la clase del modal
   var openModal = document.querySelector('.hola');
   
+
+  //validación de datos con apertura del modal enviando texto atraves de inner 
   if (clave=="" && nombre==""){  
     document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
     document.getElementById("message").innerHTML = "Por favor rellena todos todos los campos";

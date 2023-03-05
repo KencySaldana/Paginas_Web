@@ -1,5 +1,6 @@
 function subir(){
-  //Variables de
+
+  //Variables de inputs
   var formulario="";
   var usuario = document.getElementById("usuario").value;
   var nombre = document.getElementById("nombre").value;
@@ -8,9 +9,10 @@ function subir(){
   var contrasena = document.getElementById("contraseña").value;
   var confirmContrasena = document.getElementById("confirmContraseña").value;
 
-  //Constantes 
+  //consulta de la clase del modal
   const openModal = document.querySelector('.hola');
-  
+
+  //ciclo para saber que checkbox fueron seleccionados
   var hobbies="";
   for (a=0; a<6; a++){
     if (document.form1.hobby[a].checked){
@@ -18,6 +20,7 @@ function subir(){
     }
   }
 
+  //validación de datos con desplegue de modal 
   if (usuario==""|| nombre=="" || apellido==""){
     document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
     document.getElementById("message").innerHTML = "Por favor rellena todos los campos con asterísco (*)";

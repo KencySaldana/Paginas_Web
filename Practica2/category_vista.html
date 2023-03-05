@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KencySystem | Vista Productos</title>
+
+  <!------------ESTILOS DE LA PÁGINA------------>
+  <link rel="stylesheet" type="text/css" href="dist/fontawesome-5/fontawesome-css/all.css">
+  <link rel="stylesheet" type="text/css" href="dist/css/style_category.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-------------END ESTILOS----------------->
+
+
+</head>
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="pages/forms/dashboard.html" class="nav-link">Dashboard</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="dist/img/upv.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Práctica No.2</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/melody.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Ing. Kency Saldaña</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="pages/forms/Formulario.html" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Registro de usuarios
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/forms/registro_products.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Registro de productos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/forms/category_products.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Registro de categoría de productos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="category_vista.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Vista de productos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="tabla.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Tabla de productos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/forms/formulario_clientes.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Registro de clientes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/forms/formulario_proveedores.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Registro de proveedores
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="tabla_clientes.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Tabla de clientes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="tabla_proveedores.html" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Tabla de proveedores
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-------------------- INICIA MAIN DEL FILTRO------------------------------------->
+    <main>
+    <header>
+
+      <!-- Encabezados de categorías -->
+      <ul class="indicator">
+        <li data-filter="all" class="active"><a href="#">All</a></li>
+        <li data-filter="Verduras"><a href="#">Verduras</a></li>
+        <li data-filter="Frutas"><a href="#">Frutas</a></li>
+        <li data-filter="Lácteos"><a href="#">Lácteos</a></li>
+        <li data-filter="Mariscos"><a href="#">Mariscos</a></li>
+      </ul>
+      <!-- Termina Encabezados de categorías -->
+    </header>
+
+
+    <!------ COMIENZAN LOS ITEM DE LOS PRODUCTOS ------>
+    <div class="product-field">
+      <ul class="items">
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/papa.png" alt="">
+          </picture>
+          <div class="detail">            
+            <strong>Verduras</strong>
+            <span>Papa blanca 1 Kg</span>
+          </div>
+          <h4>$42.95</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/tomate.png" alt="">
+          </picture>
+          <div class="detail">          
+            <strong>Verduras</strong>
+            <span>Tomáte Huaje Supremo 1 Kg</span>
+          </div>
+          <h4>$29.95</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/cebolla.png" alt="">
+          </picture>
+          <div class="detail">         
+            <strong>Verduras</strong>
+            <span>Cebolla Blanca 1 Kg</span>
+          </div>
+          <h4>$14.95</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/camaron.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Mariscos</strong>
+            <span>Camarón Gigante 1 Kg</span>
+          </div>
+          <h4>$189.89</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/zanahoria.png" alt="">
+          </picture>
+          <div class="detail">           
+            <strong>Verduras</strong>
+            <span>Zanahoria 1 Kg</span>
+          </div>
+          <h4>$14.95</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/pina.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Frutas</strong>
+            <span>Piña Miel Gold Pza</span>
+          </div>
+          <h4>$62.00</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/sandia.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Frutas</strong>
+            <span>Sandia Sangria 1 Kg</span>
+          </div>
+          <h4>$20.50</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/pepino.png" alt="">
+          </picture>
+          <div class="detail">           
+            <strong>Frutas</strong>
+            <span>Pepino Fresco 1 Kg</span>
+          </div>
+          <h4>$33.90</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/mango.png" alt="">
+          </picture>
+          <div class="detail">            
+            <strong>Frutas</strong>
+            <span>Mango Ataulfo Supremo 1 Kg</span>
+          </div>
+          <h4>$57.00</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/helado.png" alt="">
+          </picture>
+          <div class="detail">            
+            <strong>Lácteos</strong>
+            <span>Helado Napolitano Holanda 473 ml</span>
+          </div>
+          <h4>$164.00</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/leche.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Lácteos</strong>
+            <span>Leche deslactosada 1L.</span>
+          </div>
+          <h4>$15.78</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/pescado.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Mariscos</strong>
+            <span>Pescado Sin Escamnas 1 Kg</span>
+          </div>
+          <h4>$135.78</h4>
+        </li>
+
+        <li data-category="" data-price="">
+          <picture>
+            <img src="dist/img/ostiones.png" alt="">
+          </picture>
+          <div class="detail">
+            <strong>Mariscos</strong>
+            <span>Ostiones Crudos 1 Kg</span>
+          </div>
+          <h4>$278.64</h4>
+        </li>
+      </ul>
+      <!----- TERMINAN ITEMS ------->
+    </div>
+    <!----------------------- TERMINA MAIN------------>
+  </main>
+  </div>
+</div>
+<!-- ./wrapper -->
+
+
+<!-- SCRIPTS -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<!-- SCRIP ESPECIFICO DE LA PÁGINA-->
+<script type="text/javascript" src="dist/js/category_vista.js"></script>
+</body>
+</html>

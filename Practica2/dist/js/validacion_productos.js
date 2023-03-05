@@ -1,13 +1,14 @@
 function validacion_product(){
-  //Variables de
+  //Variables de extracción de datos
   var codigo = document.getElementById("codigo_producto").value;
   var nombre = document.getElementById("nombre_producto").value;
   var precio_compra = document.getElementById("precio_compra").value;
   var precio_venta = document.getElementById("precio_compra").value;
  
-  //Constantes 
+   //Consulta de la clase del modal
   var openModal = document.querySelector('.hi');
   
+  //validación de datos con apertura del modal enviando texto atraves de inner 
   if (codigo=="" || nombre=="" || precio_venta=="" || precio_compra==""){  
     document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
     document.getElementById("message").innerHTML = "Por favor rellena todos todos los campos";
