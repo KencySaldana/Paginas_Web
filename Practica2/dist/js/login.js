@@ -4,7 +4,7 @@ function validar(){
     let email = document.getElementById("email").value;
     
     //se hace una consulta de la clase modal
- 	var openModal = document.querySelector('.btnModal');
+ 	const openModal = document.querySelector('.btnModal');
 
  	//se validan el correo y contraseña
 	if (email=="admin@upv.edu.mx" && contrasena=="admin"){

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <title>KencySystem | Formulario Cliente</title>
+</head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6f42c1;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03" >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard_cliente.html">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="formulario_cliente.html">Formulario cliente<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cliente_vista.html">Vista cliente</a>
+      </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
+
+<body>
+  <br>
+  <br>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          
+          <!-- Creación de la tarjeta que contendrá el formulario -->
+          <div class="card card-primary">
+
+            <!-- cabecera de la tarjeta -->
+            <div class="card-header">
+              <h3 class="card-title">FORMULARIO CLIENTE</h3>
+            </div>
+          
+            <!-- Inicio del formuario -->
+            <form name=form1>
+              <div class="card-body">
+                <div class="form-group">
+
+                  <!--A continuación se encuentran los elementos a rellenar del formulario -->
+                  <label>Imágen producto: (*)</label>
+                  <input type="text" class="form-control" id="imagen" placeholder="Imagen" required="">
+                </div>
+
+                <div class="form-group">
+                  <label>Ingresa nombre del producto: (*)</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Proporciona nombre del producto">
+                </div>
+
+                <div class="form-group">
+                  <label>Ingresa descripción: (*)</label>
+                  <input type="text" class="form-control" id="descripcion" placeholder="Proporciona descripción">
+                </div>
+
+                <div class="form-group">
+                  <label>Ingresa precio: (*)</label>
+                  <input type="number" class="form-control" id="precio" placeholder="Proporciona precio">
+                </div>
+
+                <div class="form-group">
+                  <label>Ingresa fecha de entrega: (*)</label>
+                  <input type="text" class="form-control" id="fecha" placeholder="Ingresa fecha">
+                </div>
+
+                <!-- footer de la tarjeta, contiene el botón para guardar los datos del formulario-->
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" onclick="subir()">Guardar datos</button>
+                </div>
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- SECCIÓN DE MODALES ----->
+  <div class="modal fade" id="modal-info">
+    <div class="modal-dialog">
+      <div class="modal-content bg-info">
+        <div class="modal-header">
+          <h4 class="modal-title" id="titulo"> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="message"></p>
+        </div>
+        <!-- Boton para cerrar la ventana del modal ----->
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+</body>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<script src="js/cliente_formulario.js"></script>
+
+</html>

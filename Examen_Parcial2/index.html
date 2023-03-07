@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- META TAGS -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <title>KencySystem | Login</title>
+</head>
+
+<body>
+  <section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              
+              <!-- Titulo del formulario ----->
+              <h3 class="mb-5">Sign in</h3>
+              
+              <!-- Campo de texto del correo electrónico ----->
+              <div class="form-outline mb-4">
+                <input type="email" id="email" class="form-control form-control-lg" />
+                <label class="form-label" for="typeEmailX-2">Email</label>
+              </div>
+              
+              <!-- Campo de texto de la contraseña ----->
+              <div class="form-outline mb-4">
+                <input type="password" id="clave" class="form-control form-control-lg" />
+                <label class="form-label" for="typePasswordX-2">Password</label>
+              </div>
+              
+              <!-- Botón Inicio de Sesión ----->
+              <button class="btn btn-primary btn-lg btn-block" id="entrar" onclick="validarDatos()">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE MODALES ----->
+  <div class="modal fade" id="modal-info">
+    <div class="modal-dialog">
+      <div class="modal-content bg-info">
+        <div class="modal-header">
+          <h4 class="modal-title" id="titulo"> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="message"></p>
+        </div>
+        <!-- Boton para cerrar la ventana del modal ----->
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+</body>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<!--SCRIP DE LA PÁGINA-->
+<script src="js/login.js"></script>
+
+</html>

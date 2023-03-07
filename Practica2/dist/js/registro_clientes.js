@@ -15,7 +15,7 @@ function subir(){
 
   //validación de datos con desplegue de modal 
   if (id==""|| nombre=="" || apellidoPaterno=="" || apellidoMaterno=="" || telefono==""|| email==""|| direccion=="" || rfc=="" || categoria==""){
-    document.getElementById("titulo").innerHTML = "¡DATOS INCOMPLETOS!";
+    document.getElementById("exampleModalCenterTitle").innerHTML = "¡DATOS INCOMPLETOS!";
     document.getElementById("message").innerHTML = "Por favor rellena todos los campos con asterísco (*)";
 
     //Función para abrir el modal mediante el evento del click
