@@ -1,0 +1,118 @@
+
+<!--
+    INTEGRANTES:
+    KENCY MARISOL SLDAÑA MARTÍNEZ 
+    YANEL AZUCENA MIRELES SENA
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+
+    <!--STYLES-->
+    <link rel = "stylesheet" href="styles.css"/>
+
+</head>
+<body>
+    <section class="section">
+        <div class="title">
+            <h2>UPV</h2>
+            <h3>Kency Marisol Saldaña Martinez <br>Yanel Azucena Mireles Sena</h3>
+            <p>
+                Programación Web
+            </p>
+        </div>
+        <div class="about-center section-center">
+
+            <article class="about-img active">
+                <img src = "imgs/imagen.png" alt="" />
+            </article>
+
+            <article class="about">
+                <!--btn container-->
+                <div class="btn-container">
+                    <button class="tab-btn active" data-id="portafolio">Portafolio</button>
+                    <button class="tab-btn" data-id="nosotros">Nosotros</button>
+                    <button class="tab-btn" data-id="objetivos">Objetivos</button>
+                </div>
+                <div class="about-content">
+                    <!--single item-->
+                    <div class="content active" id="portafolio">
+                        <h4>Portafolio</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatem dolore omnis impedit itaque reprehenderit, quas aut labore eveniet eaque quo distinctio. Nihil autem provident pariatur possimus repudiandae qui itaque?
+                        </p>
+                    </div>
+                    <!--END-->
+
+                     <!--single item-->
+                     <div class="content" id="nosotros">
+                        <h4>Nosotros</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatem dolore omnis impedit itaque reprehenderit, quas aut labore eveniet eaque quo distinctio. Nihil autem provident pariatur possimus repudiandae qui itaque?
+                        </p>
+                    </div>
+                    <!--END-->
+
+                     <!--single item-->
+                     <div class="content" id="objetivos">
+                        <h4>Objetivos</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatem dolore omnis impedit itaque reprehenderit, quas aut labore eveniet eaque quo distinctio. Nihil autem provident pariatur possimus repudiandae qui itaque?
+                        </p>
+                    </div>
+                    <!--END-->
+                </div>
+            </article>
+        </div>
+    </section>
+    <div>
+        <div class="title">
+            <h2>GALERÍA</h2>
+        </div>
+        <div class="contenido">
+            <div class="galeria">
+                <a class="imgs" id="img1"> <img src="imgs/img1.png" alt="" onclick="modalImagen(0)"></a>
+                <a class="imgs" id="img2"> <img src="imgs/img2.png" alt="" onclick="modalImagen(1)"></a>
+                <a class="imgs" id="img3"> <img src="imgs/img3.png" alt="" onclick="modalImagen(2)"></a>
+                <a class="imgs" id="img4"> <img src="imgs/img4.png" alt="" onclick="modalImagen(3)"></a>
+                <a class="imgs" id="img5"> <img src="imgs/img5.png" alt="" onclick="modalImagen(4)"></a>
+                <a class="imgs" id="img6"> <img src="imgs/img6.png" alt="" onclick="modalImagen(5)"></a>
+                <a class="imgs" id="img7"> <img src="imgs/img7.png" alt="" onclick="modalImagen(6)"></a>
+                <a class="imgs" id="img8"> <img src="imgs/img8.png" alt="" onclick="modalImagen(7)"></a>
+                <a class="imgs" id="img9"> <img src="imgs/img9.png" alt="" onclick="modalImagen(8)"></a>
+                <a class="imgs" id="img10"> <img src="imgs/img10.png" alt="" onclick="modalImagen(9)"></a>
+                <a class="imgs" id="img11"> <img src="imgs/img11.png" alt="" onclick="modalImagen(10)"></a>
+                <a class="imgs" id="img12"> <img src="imgs/img12.png" alt="" onclick="modalImagen(11)"></a>
+                <a class="imgs" id="img13"> <img src="imgs/img13.png" alt="" onclick="modalImagen(12)"></a>
+                <a class="imgs" id="img14"> <img src="imgs/img14.png" alt="" onclick="modalImagen(13)"></a>
+                <a class="imgs" id="img15"> <img src="imgs/img15.png" alt="" onclick="modalImagen(14)"></a>
+            </div>         
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <section class="modal ">
+        <div class="modal__container">
+            <div id="imagen"></div>
+            <div class="button-container">
+                <button id="btnAnterior" style="background-color: white; border: none; ">
+                  <img src="imgs/arrow-left.png"  width="40" height="40 ">
+                </button>
+                <button id="btnSiguiente"  style="background-color: white; border: none; ">
+                  <img src="imgs/arrow-right.png"  width="40" height="40">
+                </button>
+            </div>
+
+            <a href="#" class="modal__close">Close</a>
+        </div>
+    </section>
+    <!--END MODAL-->
+
+<script src="app.js"></script>
+<script src="modal.js"></script>
+</body>
+</html>
