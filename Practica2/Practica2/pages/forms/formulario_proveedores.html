@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KencySystem | Categoría</title>
+  <title>KencySystem | Formulario clientes </title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -12,7 +12,6 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../../dist/css/modal.css">
-  
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -121,7 +120,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+<li class="nav-item">
             <a href="formulario_clientes.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -222,7 +221,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link" target="_BLANK">
+                <a href="http://kencysaldanapractica.me/Practica_Final_JS" class="nav-link" target="_BLANK">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Práctica No. 5</p>
                 </a>
@@ -243,135 +242,101 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Registro de categoría de productos</h1>
+            <h1>Registro de proveedores</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-              <li class="breadcrumb-item active">Registro de categoría de productos</li>
+              <li class="breadcrumb-item active">Registro de proveedores</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
+
+    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- SELECT2 EXAMPLE -->
-        <div class="ccard card-info">
-          <div class="card-header">
-            <h3 class="card-title">Registro de Categoría de productos</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Clave:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-laptop"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="clave">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-                <div class="form-group">
-                  <label>Nombre:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-laptop"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="nombre_cat">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <div class="form-check">
-                  <div>
-                  <label>Disponible en:</label>
-                </div>
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Sucursal del Norte
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Sucursal del Sur
-                  </label>
-                </div>
-                <div>
-                  <div>
-                    <br>
-                    <label for="customRange2" class="form-label">Tiempo en exhibición(meses)</label>
-                  </div>
-                  <div>
-                    <input type="range" class="form-range" min="0" max="5" id="customRange2" style="width: 100%";>
-                  </div>
-                </div>
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Formulario datos proveedores</h3>
               </div>
-              <!-- /.col -->
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form name=form1>
+                <div class="card-body">
+                  <div class="form-group">
 
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Categorias existentes</label>
-                  <div>
-                    <select class="listbox" name="categoria" size=4 style="width: 100%;">
-                      <option value="Visa">Lácteos</option>
-                      <option value="Mastercard">Origen animal</option>
-                      <option value="American Express">Enlatados</option>
-                      <option value="American Express">Encurtidos</option>
-                      <option value="American Express">Pastas</option>
-                      <option value="American Express">Salsas</option>
-                    </select>
-                </div>
-                <div class="form-check form-switch">
-                  <br>
-                  <div>
-                    <label>Características:</label>
+                    <!--Usuario-->
+                    <label >ID: (*)</label>
+                    <input type="number" class="form-control" name = "id" id="id" placeholder="ID de proveedor" required="">
                   </div>
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault">Frágil</label>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                  <label class="form-check-label" for="flexSwitchCheckChecked">Líquido</label>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-                  <label class="form-check-label" for="flexSwitchCheckDisabled">Venta por kilo</label>
-                </div>
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
-                  <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Venta por caja</label>
-                </div>
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
 
+                   <div class="form-group">
+                    <label>Ingresa nombre(s): (*)</label>
+                    <input type="text" class="form-control" name = "nombre" id="nombre" placeholder="Proporciona nombre"required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa apellido paterno: (*)</label>
+                    <input type="text" class="form-control" name = "apellido_paterno" id="apellido_paterno" placeholder="Proporciona apellido paterno" required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa apellido materno: (*)</label>
+                    <input type="text" class="form-control" name = "apellido_materno" id="apellido_materno" placeholder="Proporciona apellido materno" required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa email: (*)</label>
+                    <input type="email" class="form-control" name = "email" id="email" placeholder="Proporciona email" required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa dirección: (*)</label>
+                    <input type="text" class="form-control" name = "direccion" id="direccion" placeholder=" Proporcionadireccion" required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa RFC: (*)</label>
+                    <input type="text" class="form-control" name = "rfc" id="rfc" placeholder="Proporciona RFC" required="">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ingresa categoría: (*)</label>
+                    <input type="text" class="form-control" name = "categoria_proveedor" id="categoria_proveedor" placeholder="Proporciona categoría" required="">
+                  </div>
+                </div>
+
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" onclick="subir()">Guardar datos</button>
+                </div>
+              </form>  
+            </div>
+            <!-- /.card -->
           </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <button type="button" class="hola" onclick="validacion_cat()">Guardar datos</button>
-          </div>
+          <!--/.col (right) -->
         </div>
-        <!-- /.card -->
-      </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
 
-      <!-- SECCIÓN DE MODALES ----->
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2023 <a>KencySystem</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- SECCIÓN DE MODALES ----->
       <div class="modal fade" id="modal-info">
         <div class="modal-dialog">
           <div class="modal-content bg-info">
@@ -394,15 +359,6 @@
       </div>
       <!-- /.modal --> 
 
-
-     <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2023 <a>KencySystem</a>.</strong> All rights reserved.
-  </footer>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -413,10 +369,11 @@
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
-
-<!-- Page specific script -->
-<script src="../../dist/js/validacion_categoria.js"></script>
+<!-- SCRIPT ESPECIFICO DE LA PÁGINA-->
+<script src="../../dist/js/registro_proveedores.js"></script>
 </body>
 </html>

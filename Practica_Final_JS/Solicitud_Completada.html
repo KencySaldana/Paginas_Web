@@ -13,87 +13,112 @@
 
   <!------------ENCABEZADO---------->
   <div class="container">
-    <div class="inner-container" style="width:60% ; height: 200px;">
+    <div class="inner-container" style="width:60% ; height: 200px; color: black;">
       <h3>Puesto solicitado</h3>
+      <h4 style="color: black;"id="puesto"></h4>
     </div>
 
     <div class="inner-container" style="width: 20%; height: 200px;">   
       <div class="blue-box">
         <h3>Fecha</h3>
+        <h4 id="fecha"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: ; ">
         <h3>Sueldo Mensual Deseado</h3>
+        <h4 id="sueldo"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width:20% ; height:200px ;">
-      <h3>Fotografía</h3>
+    <div class="inner-container" style="width:20% ; height:200px; color: black;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <center>
+      <button type="button" class="btn" onclick="submitForm()" >GENERAR JSON</button>
+      </center>
     </div>
   </div>
   <!------------ FIN ENCABEZADO---------->
 
   <!------------DATOS PERSONALES---------->
   <div class="container" style="flex-direction: column; height: 600px;">
-    <div class="inner-container" style="width:100%; height:;display: flex;">
-      <div class="blue-box" style="width:20%; height: ;">
+    <h2>------------------DATOS PERSONALES------------------</h2>
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:20%; ">
         <h3>Primer Apellido</h3>
+        <h4 id="pApellido"></h4>
       </div>
-      <div class="blue-box" style="width:20% ; height: ;">
+      <div class="blue-box" style="width:20% ; ">
         <h3>Segundo Apellido</h3>
+        <h4 id="sApellido"></h4>
       </div>
-      <div class="blue-box" style="width: 40%; height: ;">
+      <div class="blue-box" style="width: 40%; ">
         <h3>Nombres</h3>
+        <h4 id="nombres"></h4>
       </div>
-      <div class="blue-box" style="width:20% ; height: ;">
+      <div class="blue-box" style="width:20% ; ">
         <h3>Edad</h3>
+        <h4 id="edad"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%;display: flex;">
+      <div class="blue-box" style="width: 40%; ">
         <h3>Domicilio</h3>
+        <h4 id="domicilio"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Colonia</h3>
+        <h4 id="colonia"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 10%; ">
         <h3>Código Postal</h3>
+        <h4 id="codigoPostal"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>Télefono Celular</h3>
+      <div class="blue-box" style="width: 10%; ">
+        <h3>Teléfono o Celular</h3>
+        <h4 id="telefono"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Sexo</h3>
+        <h4 id="sexo"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 40%; ">
         <h3>Ciudad, Alcadia, Entidad Feferativa del Domicilio</h3>
+        <h4 id="ciudad"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Entidad Federativa (lugar) de nacimiento</h3>
+        <h4 id="entidad"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Fecha de Nacimiento</h3>
+        <h4 id="fechaNacimiento"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Nacionalidad</h3>
-      </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>Sexo</h3>
+        <h4 id="nacionalidad"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 40%; ">
         <h3>Vive con</h3>
+        <h4 id="viveCon"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 40%; ">
         <h3>Personas que dependen de usted</h3>
+        <h4 id="personasDependen"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 20%; ">
         <h3>Estado Civil</h3>
+        <h4 id="estadoCivil"></h4>
       </div>
     </div>
   </div>
@@ -101,117 +126,136 @@
 
 
   <!------------DOCUMENTACIÓN---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+  <div class="container" style="flex-direction: column; height: 400px;">
+    <h2>------------------DOCUMENTACIÓN------------------</h2>
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 50%; ">
         <h3>Clave Única de Registro de Población (CURP)</h3>
+        <h4 id="curp"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>No de AFORE</h3>
+      <div class="blue-box" style="width: 50%; ">
+        <h3>No. de AFORE</h3>
+        <h4 id="afore"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 25%; ">
         <h3>Registro Federal de Contribuyentes (RFC)</h3>
+        <h4 id="rfc"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 25%; ">
         <h3>¿Tiene Licencia de Manejo?</h3>
+        <h4 id="licenciaManejo"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 25%; ">
         <h3>Cartilla de Servicio Militar No.</h3>
+        <h4 id="servicioMilitar"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 25%; ">
         <h3>Pasaporte No.</h3>
+        <h4 id="pasaporte"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>Número de Seguridad Socia</h3>
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 40%; ">
+        <h3>Número de Seguridad Social</h3>
+        <h4 id="nss"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 30%; ">
         <h3>Clase y número de licencia</h3>
+        <h4 id="claseLicencia"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 30%; ">
         <h3>Siendo extranjero que documentos le permite trabajar en el país</h3>
+        <h4 id="extranjero"></h4>
       </div>
     </div>
   </div>
   <!------------ FIN DOCUMENTACIÓN---------->
 
   <!------------ESTADO DE SALUD Y HÁBITOS PERSONALES---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+  <div class="container" style="flex-direction: column; height: 400px;">
+    <h2>------------------ESTADO DE SALUD Y HÁBITOS PERSONALES------------------</h2>
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 50%; ">
         <h3>¿Cómo considera su estado de salud actual?</h3>
+        <h4 id="estadoSalud"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 50%; ">
         <h3>¿Padece alguna enfermedad crónica? </h3>
+        <h4 id="enfermedadCronica"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 33%; ">
         <h3>¿Practica usted algún deporte?</h3>
+        <h4 id="deporte"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 33%; ">
         <h3>¿Pertenece a algún Club Social o Deportivo?</h3>
+        <h4 id="club"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 33%; ">
         <h3>¿En qué ocupa su tiempo libre?</h3>
+        <h4 id="timepoLibre"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100% ; height:400%;display: flex;">
+      <div class="blue-box" style="width: 100%; ">
         <h3>¿Cuál es su meta en la vida?</h3>
+        <h4 id="meta"></h4>
       </div>
     </div>
   </div>
   <!------------ FIN ESTADO DE SALUD Y HÁBITOS PERSONALES---------->
 
   <!------------DATOS FAMILIARES---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <table>
+  <div class="container" style="flex-direction: column; height: 300px;">
+    <h2>------------------DATOS FAMILIARES------------------</h2>
+    <table style= "width: 100%;">
     <tr>
       <td colspan="2">Nombre</td>
-      <td>Vive</td>
-      <td>Finado</td>
+      <td style= "width: 5%;">Vive</td>
+      <td style= "width: 5%;">Finado</td>
       <td>Domicilio</td>
       <td>Ocupación</td>
     </tr>
     <tr>
-      <td>Padre</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td style= "width: 5%;">Padre</td>
+      <td id="padreNombre"></td>
+      <td id="padreVivo"></td>
+      <td id="padreMuerto"></td>
+      <td id="padreDomicilio"></td>
+      <td id="padreOcupacion"></td>
     </tr>
     <tr>
       <td>Madre</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="madreNombre"></td>
+      <td id="madreVivo"></td>
+      <td id="madreMuerto"></td>
+      <td id="madreDomicilio"></td>
+      <td id="madreOcupacion"></td>
     </tr>
     <tr>
       <td>Esposa(o)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="esposaNombre"></td>
+      <td id="esposaVivo"></td>
+      <td id="esposaMuerto"></td>
+      <td id="esposaDomicilio"></td>
+      <td id="esposaOcupacion"></td>
     </tr>
   </table>
   </div>
   <!------------ FIN DATOS FAMILIARES---------->
 
   <!------------ESCOLARIDAD---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <table>
+  <div class="container" style="flex-direction: column; height: 500px;">
+    <h2>------------------ESCOLARIDAD------------------</h2>
+    <table style= "width: 100%;">
     <tr>
       <td colspan="2">Nombre de la escuela</td>
       <td>Domicilio</td>
@@ -221,48 +265,48 @@
     </tr>
     <tr>
       <td>Primaria</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombrePrimaria"></td>
+      <td id="domicilioPrimaria"></td>
+      <td id="dePrimaria"></td>
+      <td id="aPrimaria"></td>
+      <td id="aniosPrimaria"></td>
+      <td id="tituloPrimaria"></td>
     </tr>
     <tr>
       <td>Secundaria</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombreSecundaria"></td>
+      <td id="domicilioSecundaria"></td>
+      <td id="deSecundaria"></td>
+      <td id="aSecundaria"></td>
+      <td id="aniosSecundaria"></td>
+      <td id="tituloSecundaria"></td>
     </tr>
     <tr>
       <td>Preparatoria o Vocacional</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombrePrepa"></td>
+      <td id="domicilioPrepa"></td>
+      <td id="dePrepa"></td>
+      <td id="aPrepa"></td>
+      <td id="aniosPrepa"></td>
+      <td id="tituloPrepa"></td>
     </tr>
     <tr>
       <td>Profesional</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombreProfesional"></td>
+      <td id="domicilioProfesional"></td>
+      <td id="deProfesional"></td>
+      <td id="aProfesional"></td>
+      <td id="aniosProfesional"></td>
+      <td id="tituloProfesional"></td>
     </tr>
     <tr>
       <td>Comercial u otras</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombreComercial"></td>
+      <td id="domicilioComercial"></td>
+      <td id="deComercial"></td>
+      <td id="aComercial"></td>
+      <td id="aniosComercial"></td>
+      <td id="tituloComercial"></td>
     </tr>
     <tr>
       <td>Estudios que está efectuando en la actualidad</td>
@@ -270,12 +314,11 @@
     </tr>
     <tr>
       <td>Escuela</td>
-      <td></td>
-      <td>Horario</td>
-      <td></td>
+      <td id="actualidadEscuela"></td>
       <td>Curso o Carrera</td>
-      <td></td>
+      <td id="actualidadCurso"></td>
       <td>Grado</td>
+      <td id="actualidadGrado"></td>
       <td></td>
     </tr>
   </table>
@@ -283,25 +326,30 @@
   <!------------ FIN ESCOLARIDAD---------->
 
   <!------------CONOCIMIENTOS GENERALES---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+  <div class="container" style="flex-direction: column; height: 400px;">
+    <h2>------------------CONOCIMIENTOS GENERALES------------------</h2>
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 50%; ">
         <h3>Idiomas que domina</h3>
+        <h4 id="idiomas"></h4>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
+      <div class="blue-box" style="width: 50%; ">
         <h3>Funciones de oficina que domina</h3>
+        <h4 id="funcionesOficina"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 100%; ">
         <h3>Máquinas de oficina y/o equipo de trabajo que sepa maneja</h3>
+        <h4 id="maquinasOficina"></h4>
       </div>
     </div>
 
-    <div class="inner-container" style="width: ; height:;display: flex;">
-      <div class="blue-box" style="width: ; height: ;">
+    <div class="inner-container" style="width: 100%; display: flex;">
+      <div class="blue-box" style="width: 100%; ">
         <h3>Otros trabajos o funciones que domina</h3>
+        <h4 id="otrosTrabajos"></h4>
       </div>
     </div>
   </div>
@@ -309,85 +357,80 @@
 
 
   <!------------EMPLEO ACTUAL O ANTERIORES---------->
-  <div class="container" style="flex-direction: column; height: 600px;">
-    <table>
+  <div class="container" style="flex-direction: column; height: 750px;">
+    <h2>------------------EMPLEO ACTUAL O ANTERIORES------------------</h2>
+    <table style= "width: 100%;">
     <tr>
-      <td >Concepto</td>
+      <td style= "width: 20%;">Concepto</td>
       <td>Empleo actual o último</td>
       <td>Empleo anterior</td>
       <td>Empleo anterior</td>
     </tr>
     <tr>
       <td>Tiempo que prestó sus servicios</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="empleoActual"></td>
+      <td id="empleoAnterior1"></td>
+      <td id="empleoAnterior2"></td>
     </tr>
     <tr>
       <td>Nombre de la Empresa</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombreActual"></td>
+      <td id="nombreAnterior1"></td>
+      <td id="nombreAnterior2"></td>
     </tr>
     <tr>
       <td>Domicilio</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Domicilio</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="domicilioActual"></td>
+      <td id="domicilioAnterior1"></td>
+      <td id="domicilioAnterior2"></td>
     </tr>
     <tr>
       <td>Puesto inicial</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="puestoActual"></td>
+      <td id="puestoAnterior1"></td>
+      <td id="puestoAnterior2"></td>
     </tr>
     <tr>
       <td>Puesto final</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="puestoFinalActual"></td>
+      <td id="puestoFinalAnterior1"></td>
+      <td id="puestoFinalAnterior2"></td>
     </tr>
     <tr>
       <td>Sueldo inicial</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="sueldoActual"></td>
+      <td id="sueldoAnterior1"></td>
+      <td id="sueldoAnterior2"></td>
     </tr>
     <tr>
       <td>Sueldo final</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="sueldoFinalActual"></td>
+      <td id="sueldoFinalAnterior1"></td>
+      <td id="sueldoFinalAnterior2"></td>
     </tr>
     <tr>
       <td>Motivos de separación</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="separacionActual"></td>
+      <td id="separacionAnterior1"></td>
+      <td id="separacionAnterior2"></td>
     </tr>
     <tr>
       <td>Nombre de su jefe inmediato</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="nombreJefeActual"></td>
+      <td id="nombreJefeAnterior1"></td>
+      <td id="nombreJefeAnterior2"></td>
     </tr>
     <tr>
       <td>Actividades Desempeñadas</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td id="actividadesActual"></td>
+      <td id="actividadesAnterior1"></td>
+      <td id="actividadesAnterior2"></td>
     </tr>
     <tr>
       <td>Podemos solicitar informes de usted</td>
-      <td>Sí</td>
-      <td>No</td>
+      <td id="informes"></td>
       <td>Razones</td>
+      <td id="razones"></td>
     </tr>
 
   </table>
@@ -395,73 +438,223 @@
   <!------------ FIN ESCOLARIDAD---------->
 
 
-  <!------------REFERENCIAS ´PERSONALES---------->
-  <div class="container">
+  <!------------REFERENCIAS PERSONALES---------->
+  <div class="container" >
     <div class="inner-container" style="width:60% ; height: 200px;">
-      <h3>Nombre</h3>
+      <h3 style="color: black;">Nombre</h3>
       <div class="blue-box">
-        <h3>sds</h3>
+        <h3 id="nombreRef1"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 id="nombreRef2"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 id="nombreRef3"></h3>
       </div>
     </div>
 
     <div class="inner-container" style="width: 20%; height: 200px;">   
-      <h3>Domicilio</h3>
+      <h3 style="color: black;">Domicilio</h3>
       <div class="blue-box">
-        <h3>sds</h3>
+        <h3 style="color: black;"id="domicilioRef1"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;"id="domicilioRef2"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;"id="domicilioRef3"></h3>
       </div>
     </div>
 
     <div class="inner-container" style="width: 20%; height: 200px;">   
-      <h3>Teléfono</h3>
+      <h3 style="color: black;">Teléfono</h3>
       <div class="blue-box">
-        <h3>sds</h3>
+        <h3 style="color: black;"id="telefonoRef1"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;"id="telefonoRef2">sds</h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;"id="telefonoRef3"></h3>
       </div>
     </div>
 
     <div class="inner-container" style="width: 20%; height: 200px;">   
-      <h3>Ocupación</h3>
+      <h3 style="color: black;">Ocupación</h3>
       <div class="blue-box">
-        <h3>sds</h3>
+        <h3 style="color: black;"id="ocupacionRef1"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;"id="ocupacionRef2"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;" id="ocupacionRef3">sds</h3>
       </div>
     </div>
 
     <div class="inner-container" style="width: 20%; height: 200px;">   
-      <h3>Tiempo de conocerse</h3>
+      <h3 style="color: black;">Tiempo de conocerse</h3>
       <div class="blue-box">
-        <h3>sds</h3>
+        <h3 style="color: black;" id="tiempoRef1"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;" id="tiempoRef2"></h3>
       </div>
-      <div class="blue-box" style="width: ; height: ;">
-        <h3>sds</h3>
+      <div class="blue-box" style="width: ; ">
+        <h3 style="color: black;" id="tiempoRef3">sds</h3>
       </div>
     </div>
   </div>
-  <!------------ FIN ENCABEZADO---------->
+  <!------------ FIN REFERENCIAS PERSONALES---------->
+
+
+  <!------------DATOS GENERALES---------->
+
+  <div class="container" style="flex-direction: column; height: 600px;">
+    <h2>------------------DATOS GENERALES------------------</h2>
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:50%; ">
+        <h3>¿Cómo se enteró de este empleo? </h3>
+        <h4 id="enterarEmpleo"></h4>
+      </div>
+      <div class="blue-box" style="width:50% ; ">
+        <h3>¿Tienes familiares y/o amigos que laboren en esta empresa?</h3>
+        <h4 id="familiaresEmpresa"></h4>
+      </div>
+    </div>
+
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:50%; ">
+        <h3>¿Ha estado Afianzado?</h3>
+        <h4 id="afianzado"></h4>
+      </div>
+      <div class="blue-box" style="width:50% ; ">
+        <h3>¿Pertenece a algún sindicato?</h3>
+        <h4 id="sindicato"></h4>
+      </div>
+    </div>
+
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:50%; ">
+        <h3>¿Tiene seguro de vida?</h3>
+        <h4 id="seguroVida"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe mensual $</h3>
+        <h4 id="importe"></h4>
+      </div>
+      <div class="blue-box" style="width:50%; ">
+        <h3>¿Puede viajar?</h3>
+        <h4 id="seguroVida"></h4>
+      </div>
+    </div>
+
+
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:50%; ">
+        <h3>¿Está dispuesto a cambiar de lugar de residencia?</h3>
+        <h4 id="cambiarLugar"></h4>
+      </div>
+      <div class="blue-box" style="width:50% ; ">
+        <h3>¿Fecha en que podría presentarse a trabajar?</h3>
+        <h4 id="fechaTrabajar"></h4>
+      </div>
+    </div>
+  </div>
+
+  <!------------ FIN DATOS GENERALES---------->
+
+  <!------------DATOS ECONÓMICOS---------->
+
+  <div class="container" style="flex-direction: column; height: 600px;">
+    <h2>------------------DATOS ECONÓMICOS------------------</h2>
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Tiene usted otros ingresos?</h3>
+        <h4 id="otrosIngresos"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe mensual $</h3>
+        <h4 id="importeOtrosIngresos"></h4>
+      </div>
+
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Su cónyuge trabaja?</h3>
+        <h4 id="conyugeTrabaja"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe mensual $</h3>
+        <h4 id="importeConyuge"></h4>
+      </div>
+    </div>
+
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Vive en casa propia?</h3>
+        <h4 id="casaPropia"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe mensual $</h3>
+        <h4 id="importeCasa"></h4>
+      </div>
+
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Paga Renta?</h3>
+        <h4 id="renta"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe mensual $</h3>
+        <h4 id="importeRenta"></h4>
+      </div>
+    </div>
+
+    <div class="inner-container" style="width:100%; display: flex;">
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Tiene automóvil propio?</h3>
+        <h4 id="automovil"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Placas</h3>
+        <h4 id="placas"></h4>
+      </div>
+
+      <div class="blue-box" style="width:40%; ">
+        <h3>¿Tienes Deudas?</h3>
+        <h4 id="conyugeTrabaja"></h4>
+      </div>
+      <div class="blue-box" style="width:10% ; ">
+        <h3>Importe $</h3>
+        <h4 id="importeDeudas"></h4>
+      </div>
+    </div>
+  <div class="inner-container" style="width:100%; display: flex;">
+    <div class="blue-box" style="width:20%; ">
+        <h3>Ingresos $</h3>
+        <h4 id="ingresos"></h4>
+      </div>
+      <div class="blue-box" style="width:20% ; ">
+        <h3>Ahorros $</h3>
+        <h4 id="ahorros"></h4>
+      </div>
+      <div class="blue-box" style="width:20% ; ">
+        <h3>Egresos $</h3>
+        <h4 id="egresos"></h4>
+      </div>
+       <div class="blue-box" style="width:20% ; ">
+      <h3>Total $</h3>
+        <h4 id="total"></h4>
+      </div>
+      <div class="blue-box" style="width:20% ; ">
+      <h3>Cuanto abona $</h3>
+        <h4 id="abona"></h4>
+      </div>
+    </div>
+</div>
+
+    
+</div>
+<!------------ FIN DATOS ECONÓMICOS---------->
+
+<script type="text/javascript" src="js/Solicitud_Completa.js"></script>
 </body>
 </html>

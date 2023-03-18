@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KencySystem | Formulario clientes </title>
+  <title>KencySystem | Productos</title>
 
+  <!------------ESTILOS DE LA PÁGINA------------>
+  <link rel="stylesheet" type="text/css" href="dist/fontawesome-5/fontawesome-css/all.css">
+  <link rel="stylesheet" type="text/css" href="dist/css/style_category.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../../dist/css/modal.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-------------END ESTILOS----------------->
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -24,7 +28,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="pages/forms/dashboard.html" class="nav-link">Dashboard</a>
       </li>
     </ul>
 
@@ -59,7 +63,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="../../dist/img/upv.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="dist/img/upv.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Práctica No.2</span>
     </a>
 
@@ -68,7 +72,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/melody.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/melody.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Ing. Kency Saldaña</a>
@@ -81,7 +85,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="Formulario.html" class="nav-link">
+            <a href="pages/forms/Formulario.html" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Registro de usuarios
@@ -89,7 +93,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="registro_products.html" class="nav-link">
+            <a href="pages/forms/registro_products.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Registro de productos
@@ -97,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="category_products.html" class="nav-link">
+            <a href="pages/forms/category_products.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Registro de categoría de productos
@@ -105,7 +109,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../category_vista.html" class="nav-link">
+            <a href="category_vista.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Vista de productos
@@ -113,7 +117,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../tabla.html" class="nav-link">
+            <a href="tabla.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Tabla de productos
@@ -121,7 +125,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="formulario_clientes.html" class="nav-link">
+            <a href="pages/forms/formulario_clientes.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Registro de clientes
@@ -129,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="formulario_proveedores.html" class="nav-link">
+            <a href="pages/forms/formulario_proveedores.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Registro de proveedores
@@ -137,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../tabla_clientes.html" class="nav-link">
+            <a href="tabla_clientes.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Tabla de clientes
@@ -145,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../tabla_proveedores.html" class="nav-link">
+            <a href="tabla_proveedores.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Tabla de proveedores
@@ -221,7 +225,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link" target="_BLANK">
+                <a href="http://kencysaldanapractica.me/Practica_Final_JS" class="nav-link" target="_BLANK">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Práctica No. 5</p>
                 </a>
@@ -237,132 +241,59 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Registro de clientes</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-              <li class="breadcrumb-item active">Registro de clientes</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Formulario datos cliente</h3>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                  <div>
+                    <br>
+                    <br>
+                  </div>
+                  <!-------------------- INICIA TABLA------------------------------------->
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">TABLA DE PROVEEDORES</h3>
+                      <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                          <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                              <i class="fas fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                      <table class="table table-hover text-nowrap">
+                        <thead>
+                          <tr id = "table_head">
+                          </tr>
+                        </thead>
+                        <tbody id="table_body">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+      
+                  <!-------------------- END TABLA------------------------------------->
+                </div>
+                <div>
+                  <col>
+                   <button type="button" id="actualizar" class="btn btn-primary" >  Actualizar  </button>
+                  <col width="20px">
+                   <button type="button" id="limpiar" class="btn btn-primary" >  Limpiar  </button>
+                </div>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form name=form1>
-                <div class="card-body">
-                  <div class="form-group">
-
-                    <!--Usuario-->
-                    <label >ID: (*)</label>
-                    <input type="number" class="form-control" name = "id" id="id" placeholder="ID de cliente" required="">
-                  </div>
-
-                   <div class="form-group">
-                    <label>Ingresa nombre(s): (*)</label>
-                    <input type="text" class="form-control" name = "nombre" id="nombre" placeholder="Proporciona nombre"required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa apellido paterno: (*)</label>
-                    <input type="text" class="form-control" name = "apellido_paterno" id="apellido_paterno" placeholder="Proporciona apellido paterno" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa apellido materno: (*)</label>
-                    <input type="text" class="form-control" name = "apellido_materno" id="apellido_materno" placeholder="Proporciona apellido materno" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa teléfono: (*)</label>
-                    <input type="tel" class="form-control" name = "telefono" id="telefono" placeholder="Proporciona teléfono" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa email: (*)</label>
-                    <input type="email" class="form-control" name = "email" id="email" placeholder="Proporciona email" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa dirección: (*)</label>
-                    <input type="text" class="form-control" name = "direccion" id="direccion" placeholder=" Proporcionadireccion" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa RFC: (*)</label>
-                    <input type="text" class="form-control" name = "rfc" id="rfc" placeholder="Proporciona RFC" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Ingresa categoría: (*)</label>
-                    <input type="text" class="form-control" name = "categoria_clientes" id="categoria_clientes" placeholder="Proporciona categoría" required="">
-                  </div>
-                </div>
-
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="button" class="btn btn-primary" onclick="subir()">Guardar datos</button>
-                </div>
-              </form>  
-            </div>
-            <!-- /.card -->
-          </div>
-          <!--/.col (right) -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+
   </div>
-
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2023 <a>KencySystem</a>.</strong> All rights reserved.
-  </footer>
-
-  <!-- SECCIÓN DE MODALES ----->
-      <div class="modal fade" id="modal-info">
-        <div class="modal-dialog">
-          <div class="modal-content bg-info">
-            <div class="modal-header">
-              <h4 class="modal-title" id="titulo"></h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p id ="message"></p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal --> 
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -373,12 +304,9 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- SCRIPT ESPECIFICO DE LA PÁGINA-->
-<script src="../../dist/js/registro_clientes.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<!-- Page specific script -->
+<script type="text/javascript" src="dist/js/proveedores_tabla.js"></script>
 </body>
 </html>

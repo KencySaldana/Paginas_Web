@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+ <html lang="en">
+   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+   </head>
+
+<body>
+  <div class="container2">
+    <!-- Círculo grande decorativo -->
+    <span class="big-circle"></span>
+    
+    <!-- Imagen decorativa en forma de cuadrado -->
+    <img src="img/shape.png" class="square" alt="" />
+    
+    <div class="form2">
+      <div class="contact-form">
+        
+        <!-- Círculos pequeños decorativos -->
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        
+        <!-- Formulario de solicitud -->
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Solicitud de empleo</h3>
+  
+          <!-- Primer input -->
+          <div class="input-container">
+            <input type="text" name="puesto"  class="input" />
+            <label for="">Puesto que solicita</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Puesto que solicita</span>
+          </div>
+          
+          <!-- Segundo input (datepicker) -->
+          <div class="input-container">
+            <input type="date" name="fecha" class="input" />
+            <label for="">Fecha</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Fecha</span>
+          </div>
+          
+          <!-- Tercer input -->
+          <div class="input-container">
+            <input type="text" name="sueldoMensual" class="input" />
+            <label for="">Sueldo Mensual deseado</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Sueldo Mensual deseado</span>
+          </div>
+        </form>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container2">
+    <!-- círculo grande de fondo -->
+    <span class="big-circle"></span>
+    <!-- Forma cuadrada que se superpone al círculo -->
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2">
+        <div class="contact-form">
+            <!-- círculo pequeño #1 -->
+            <span class="circle one"></span>
+            <!-- círculo pequeño #2 -->
+            <span class="circle two"></span>
+            <form action="index.html" autocomplete="off">
+                <h3 class="title">Datos personales</h3>
+                <!-- Campo de entrada para el apellido paterno -->
+                <div class="input-container">
+                    <input type="text" name="apellidoP" id="apellidoP" class="input" />
+                    <label for="">Apellido Paterno</label>
+                    <span>Apellido Paterno</span>
+                </div>
+                <!-- Campo de entrada para el apellido materno -->
+                <div class="input-container">
+                    <input type="text" name="apellidoM" id="apellidoM" class="input" />
+                    <label for="">Apellido Materno</label>
+                    <span>Apellido Materno</span>
+                </div>
+                <!-- Campo de entrada para los nombres -->
+                <div class="input-container">
+                    <input type="text" name="nombre" id="nombre" class="input" />
+                    <label for="">Nombre(s)</label>
+                    <span>Nombre(s)</span>
+                </div>
+                <!-- Campo de entrada para la edad -->
+                <div class="input-container">
+                    <input type="text" name="edad" id="edad" class="input" />
+                    <label for="">Edad (años)</label>
+                    <span>Edad (años)</span>
+                </div>
+                <!-- Campo de entrada para el teléfono o celular -->
+                <div class="input-container">
+                    <input type="text" name="telefono" id="telefono" class="input" />
+                    <label for="">Telefono o Celular </label>
+                    <span>Telefono o Celular</span>
+                </div>
+                <!-- Campo de entrada para la fecha de nacimiento -->
+                <div class="input-container">
+                    <input type="date" name="fechaNac" id="fechaNac" class="input" />
+                    <label for="">Fecha de nacimiento</label>
+                    <span>Fecha de nacimiento</span>
+                </div>
+                <!-- Campo de entrada para el sexo -->
+                <div class="input-container">
+                    <input type="text" name="sexo" id="sexo" class="input" />
+                    <label for="">Sexo</label>
+                    <span>Sexo</span>
+                </div>
+                <!-- Campo de entrada para la nacionalidad -->
+                <div class="input-container">
+                    <input type="text" name="nacionalidad" id="nacionalidad" class="input" />
+                    <label for="">Nacinalidad</label>
+                    <span>Nacinalidad</span>
+                </div>
+                <!-- Campo de entrada para el estado civil -->
+                <div class="input-container">
+                    <input type="text" name="estadoCivil" id="estadoCivil" class="input" />
+                    <label for="">Estado civil</label>
+                    <span>Estado civil</span>
+                </div>
+                <!-- Campo de entrada para el domicilio -->
+                <div class="input-container">
+                    <input type="text" name="domicilio" id="domicilio" class="input" />
+                    <label for="">Domicilio</label>
+                    <span>Domicilio</span>
+                </div>
+                <!-- Campo de entrada para la colonia -->
+                <div class="input-container">
+                    <input type="text" name="colonia" id="colonia" class="input" />
+                    <label for="">Colonia</label>
+                    <span>Colonia</span>
+                </div>
+                <!-- Campo de entrada para el código postal -->
+                <div class="input-container">
+                    <input type="text" name="cp" id="cp" class="input" />
+                    <label for="">Código Postal</label>
+                    <span>Código Postal</span>
+                </div>
+                <!-- Campo de entrada para la ciudad o alcaldía del domicilio -->
+                <div class="input-container">
+                    <input type="text" name="ciudadDelDomicilio" name="ciudadDelDomicilio" class="input" />
+                    <label for="">Ciudad o Alcadía del Domicilio</label>
+                    <span>Ciudad o Alcadía del Domicilio</span>
+                </div>
+                <!-- Campo de entrada para saber quién vive con el solicitante -->
+                <div class="input-container">
+                    <input type="text" name="viveCon" class="input" />
+                    <label for="">Vive con: </label>
+                    <span>Vive con:</span> 
+                </div>
+
+                <!-- Campo de entrada para saber las personas que dependen de el -->
+          <div class="input-container">
+            <input type="text" name="personasDependen" class="input" />
+            <label for="">Personas que dependen de usted: </label>
+            <span>Personas que dependen de usted:</span>
+          </div>
+        </form>
+      </div>
+    </div> 
+  </div>
+
+
+  <!-- Contenedor principal con clase "container2" -->
+<div class="container2">
+  <!-- Círculo grande con clase "big-circle" -->
+  <span class="big-circle"></span>
+  <!-- Imagen con clase "square" -->
+  <img src="img/shape.png" class="square" alt="" />
+  <!-- Sección de formulario con clase "form2" -->
+  <div class="form2">
+    <!-- Formulario de contacto con clase "contact-form" -->
+    <div class="contact-form">
+      <!-- Círculo uno con clase "circle one" -->
+      <span class="circle one"></span>
+      <!-- Círculo dos con clase "circle two" -->
+      <span class="circle two"></span>
+      <!-- Formulario en sí -->
+      <form action="index.html" autocomplete="off">
+        <!-- Encabezado con clase "title" -->
+        <h3 class="title">Documentación</h3>
+        <!-- Campo para ingresar CURP -->
+        <div class="input-container">
+          <input type="text" name="curp" class="input" />
+          <label for="">CURP</label>
+          <span>CURP</span>
+        </div>
+
+        <!-- Campo para ingresar número de AFORE -->
+        <div class="input-container">
+          <input type="text" name="afore" class="input" />
+          <label for="">N. AFORE</label>
+          <span>N. AFORE</span>
+        </div>
+
+        <!-- Campo para ingresar RFC -->
+        <div class="input-container">
+          <input type="text" name="rfc" class="input" />
+          <label for="">RFC</label>
+          <span>RFC</span>
+        </div>
+
+        <!-- Campo para seleccionar si tiene licencia de manejo o no -->
+        <div class="input-container">
+          <input type="text" name="licenciaM" class="input" />
+          <label for="">¿Tiene licencia de manejo?</label>
+          <span>¿Tiene licencia de manejo?</span>
+        </div>
+
+        <!-- Campo para ingresar número de cartilla de servicio militar -->
+        <div class="input-container">
+          <input type="text" name="cartillaM" class="input" />
+          <label for="">Cartilla de Servicio Militar No.</label>
+          <span>Cartilla de Servicio Militar No.</span>
+        </div>
+
+        <!-- Campo para ingresar número de pasaporte -->
+        <div class="input-container">
+          <input type="text" name="pasaporte" class="input" />
+          <label for="">Pasaporte No.</label>
+          <span>Pasaporte No.</span>
+        </div>
+
+        <!-- Campo para ingresar número de seguridad social -->
+        <div class="input-container">
+          <input type="text" name="nns" class="input" />
+          <label for="">Número de Seguridad Social</label>
+          <span>Número de Seguridad Social</span>
+        </div>
+
+        <!-- Campo para ingresar la clase y número de su licencia -->
+        <div class="input-container">
+          <input type="text" name="clase_n" class="input" />
+          <label for="">Clase y número de licencia</label>
+          <span>Clase y número de licencia</span>
+        </div>          
+      </form>
+    </div>
+  </div> 
+</div>
+
+
+ <!-- La siguiente sección es un contenedor con clase "container2" -->
+<div class="container2">
+  
+  <!-- Se crea un círculo grande con clase "big-circle" -->
+  <span class="big-circle"></span>
+
+  <!-- Se incluye una imagen con clase "square" y atributo "alt" vacío -->
+  <img src="img/shape.png" class="square" alt="" />
+
+  <!-- Se crea un contenedor con clase "form2" -->
+  <div class="form2">
+
+    <!-- Se crea un contenedor con clase "contact-form" -->
+    <div class="contact-form">
+
+      <!-- Se crean dos círculos pequeños con clase "circle one" y "circle two" -->
+      <span class="circle one"></span>
+      <span class="circle two"></span>
+
+      <!-- Se crea un formulario con acción "index.html" y sin autocompletar -->
+      <form action="index.html" autocomplete="off">
+
+        <!-- Se incluye un título con clase "title" -->
+        <h3 class="title">Estado de salud y hábitos personales</h3>
+
+        <!-- Se crean varios contenedores con clase "input-container" que contienen un input, un label y un span -->
+        <div class="input-container">
+            <input type="text" name="estadoSalud" class="input" />
+            <label for="">¿Cómo considera su estadi de salud actual?</label>
+            <span>¿Cómo considera su estadi de salud actual?</span>
+          </div>
+
+          <div class="input-container">
+            <input type="text" name="enfermedadCronica" class="input" />
+            <label for="">¿Padece alguna enfermedad crónica?</label>
+            <span>¿Padece alguna enfermedad crónica?</span>
+          </div>
+
+          <div class="input-container">
+            <input type="text" name="deporte" class="input" />
+            <label for="">¿Práctica algún deporte?</label>
+            <span>¿Práctica algún deporte?</span>
+          </div>
+
+          <div class="input-container">
+            <input type="text" name="clubSocial" class="input" />
+            <label for="">¿Pertenece a algún Club Social Deportivo?</label>
+            <span>¿Pertenece a algún Club Social Deportivo?</span>
+          </div>
+
+          <div class="input-container">
+            <input type="text" name="tiempoLibre" class="input" />
+            <label for="">¿En qué ocupa su tiempo libre?</label>
+            <span>¿En que ocupa su tiempo libre?</span>
+          </div>
+
+          <div class="input-container">
+            <input type="text" name="metaVida" class="input" />
+            <label for="">¿Cuál es su meta en la vida?</label>
+            <span>¿Cuál es su meta en la vida?</span>
+          </div>
+
+        </form>
+      </div>
+    </div> 
+  </div>
+  
+
+  <div class="container2" style="display: grid;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2" >
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Datos familiares</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" >Nombre</th>
+                  <th scope="col">Vive</th>
+                  <th scope="col">Fallecido</th>
+                  <th scope="col">Domicilio</th>
+                  <th scope="col">Ocupación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Padre</th>
+                  <td><input type="text" name="nombrePadre" class="input2" /></td>
+                  <td>
+                    <input  type="checkbox" value=""  name="vivePadre">
+
+                  </td>
+                  <td><input  type="checkbox" value=""  name="fallecidoPadre"></td>
+                  <td><input type="text" name="domicilioPadre" class="input2" /></td>
+                  <td><input type="text" name="ocupacionPadre" class="input2" /></td>
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Madre</th>
+                  <td><input type="text" name="nombreMadre" class="input2" /></td>
+                  <td><input  type="checkbox" value=""  name="viveMadre"></td>
+                  <td><input  type="checkbox" value=""  name="fallecidoMadre"></td>
+                  <td><input type="text" name="domicilioMadre" class="input2" /></td>
+                  <td><input type="text" name="ocupacionMadre" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Esposo(a)</th>
+                  <td ><input type="text" name="nombreEsp" class="input2" /></td>
+                  <td><input  type="checkbox" value=""  name="viveEsp"></td>
+                  <td><input  type="checkbox" value=""  name="fallecidoEsp"></td>
+                  <td><input type="text" name="domicilioEsp" class="input2" /></td>
+                  <td><input type="text" name="ocupacionEsp" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre y edades de los hijos</th>
+                  <td colspan="5"><input type="text" name="nombre_edad_hijos" class="input2" /></td>
+                </tr>
+              </tbody>
+            
+            </table>
+          
+        </form>
+      </div>
+    </div> 
+  </div>
+
+
+  <div class="container2" style=" margin-top: 20px; display: block;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2">
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Escolaridad</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" >Nombre de la escuela</th>
+                  <th scope="col">Domicilio</th>
+                  <th scope="col" colspan="2">Fechas</th>
+                  <th scope="col">Años</th>
+                  <th scope="col">Titulo recibido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Primaria</th>
+                  <td><input type="text" name="nombrePrimaria" class="input2" /></td>
+                  <td><input type="text" name="domicilioPrimaria" class="input2" /></td>
+                  <td><input type="date" name="fechaInicioPrimaria" class="input2" /></td>
+                  <td><input type="date" name="fechaFinPrimaria" class="input2" /></td>
+                  <td><input type="text" name="aniosPrimaria" class="input2" /></td>
+                  <td><input type="text" name="tituloPrimaria" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Secundaria</th>
+                  <td><input type="text" name="nombreSecundaria" class="input2" /></td>
+                  <td><input type="text" name="domicilioSecundaria" class="input2" /></td>
+                  <td><input type="date" name="fechaInicioSecundaria" class="input2" /></td>
+                  <td><input type="date" name="fechaFinSecundaria" class="input2" /></td>
+                  <td><input type="text" name="aniosSecundaria" class="input2" /></td>
+                  <td><input type="text" name="tituloSecundaria" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Preparatoria o vocacional</th>
+                  <td><input type="text" name="nombrePreparatoria" class="input2" /></td>
+                  <td><input type="text" name="domicilioPreparatoria" class="input2" /></td>
+                  <td><input type="date" name="fechaInicioPreparatoria" class="input2" /></td>
+                  <td><input type="date" name="fechaFinPreparatoria" class="input2" /></td>
+                  <td><input type="text" name="aniosPreparatoria" class="input2" /></td>
+                  <td><input type="text" name="tituloPreparatoria" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Profesional</th>
+                  <td><input type="text" name="nombreProfesional" class="input2" /></td>
+                  <td><input type="text" name="domicilioProfesional" class="input2" /></td>
+                  <td><input type="date" name="fechaInicioProfesional" class="input2" /></td>
+                  <td><input type="date" name="fechaFinProfesional" class="input2" /></td>
+                  <td><input type="text" name="aniosProfesional" class="input2" /></td>
+                  <td><input type="text" name="tituloProfesional" class="input2" /></td>
+                </tr>  
+
+                <tr>
+                  <th scope="row">Comercial u otras</th>
+                  <td><input type="text" name="nombreComercial" class="input2" /></td>
+                  <td><input type="text" name="domicilioComercial" class="input2" /></td>
+                  <td><input type="date" name="fechaInicioComercial" class="input2" /></td>
+                  <td><input type="date" name="fechaFinComercial" class="input2" /></td>
+                  <td><input type="text" name="aniosComercial" class="input2" /></td>
+                  <td><input type="text" name="tituloComercial" class="input2" /></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Estudios que está efectuando en la actualidad</th>
+                  <td colspan="6"><input type="text" name="estudiosActualidad" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row" colspan="2">Escuela <input type="text" name="escuelaActual" class="input2" /></th>
+                  
+                  <th scope="row" colspan="2">Horario <input type="text" name="horarioActual" class="input2" /></th>
+                  
+                  <th scope="row" colspan="2">Curso o carrera <input type="text" name="cursoActual" class="input2" /></th>
+                  
+                  <th scope="row">Grado <input type="text" name="gradoActual" class="input2" /></th>
+                  
+                </tr>
+              </tbody>
+            
+            </table>
+          
+        </form>
+      </div>
+    </div> 
+  </div>
+
+
+  <div class="container2" >
+    <!-- Círculo grande decorativo -->
+    <span class="big-circle"></span>
+    
+    <!-- Imagen decorativa en forma de cuadrado -->
+    <img src="img/shape.png" class="square" alt="" />
+    
+    <div class="form2">
+      <div class="contact-form">
+        
+        <!-- Círculos pequeños decorativos -->
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        
+        <!-- Formulario de solicitud -->
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Conocimientos generales</h3>
+  
+          <!-- Primer input -->
+          <div class="input-container">
+            <input type="text" name="idiomas" class="input" />
+            <label for="">Idiomas que domina</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Idiomas que domina</span>
+          </div>
+          
+          <!-- Segundo input funciones de oficina -->
+          <div class="input-container">
+            <input type="text" name="funcionesOficina" class="input" />
+            <label for="">Funciones de oficina que domina</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Funciones de oficina que domina</span>
+          </div>
+          
+          <!-- Tercer input -->
+          <div class="input-container">
+            <input type="text" name="maquinasOficina" class="input" />
+            <label for="">Maquinas de oficina y/o equipo de trabajo que sepa manejar</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Maquinas de oficina y/o equipo de trabajo que sepa manejar</span>
+          </div>
+          <!-- Tercer input -->
+          <div class="input-container">
+            <input type="text" name="otrosTrabajosDomina" class="input" />
+            <label for="">Otros trabajos o funciones que domina</label>
+            
+            <!-- Texto flotante para indicar al usuario qué debe escribir en el campo -->
+            <span>Otros trabajos o funciones que domina</span>
+          </div>
+        </form>
+      </div>
+    </div> 
+  </div>
+
+
+  <div class="container2" style="display: grid;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2" >
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Empleo actual o anteriores</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col">Concepto</th>
+                  <th scope="col" >Empleo actual o último</th>
+                  <th scope="col">Empleo anterior</th>
+                  <th scope="col">Empleo anterior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Tiempo que prestó sus servicios</th>
+                  <td><input type="text" name="tiempoEmpleoActual" class="input2" /></td>
+                  <td><input type="text" name="tiempoEmpleoAnterior1" class="input2" /></td>
+                  <td><input type="text" name="tiempoEmpleoAnterior2" class="input2" /></td>
+                  
+                  
+                </tr>
+                <tr>
+                  <th scope="row">Nombre de la empresa</th>
+                  <td><input type="text" name="nombreEmpleoActual" class="input2" /></td>
+                  <td><input type="text" name="nombreEmpleoAnterior1" class="input2" /></td>
+                  <td><input type="text" name="nombreEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Domicilio</th>
+                  <td ><input type="text" name="domicilioEmpleoActual" class="input2" /></td>
+                  <td ><input type="text" name="domicilioEmpleoAnterior1" class="input2" /></td>
+                  <td ><input type="text" name="domicilioEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Puesto</th>
+                  <td><input type="text" name="puestoEmpleoActual" class="input2" /></td>
+                  <td ><input type="text" name="puestoEmpleoAnterior1" class="input2" /></td>
+                  <td ><input type="text" name="puestoEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Sueldos</th>
+                  <td ><input type="text" name="sueldoEmpleoActual" class="input2" /></td>
+                  <td ><input type="text" name="sueldoEmpleoAnterior1" class="input2" /></td>
+                  <td ><input type="text" name="sueldoEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Motivos de su separación</th>
+                  <td><input type="text" name="motivoSeparacionEmpleoActual" class="input2" /></td>
+                  <td><input type="text" name="motivoSeparacionEmpleoAnterior1" class="input2" /></td>
+                  <td><input type="text" name="motivoSeparacionEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre de jefe inmediato</th>
+                  <td ><input type="text" name="jefeEmpleoActual" class="input2" /></td>
+                  <td ><input type="text" name="jefeEmpleoAnterior1" class="input2" /></td>
+                  <td ><input type="text" name="jefeEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Actividades desempeñadas</th>
+                  <td ><input type="text" name="actEmpleoActual" class="input2" /></td>
+                  <td ><input type="text" name="actEmpleoAnterior1" class="input2" /></td>
+                  <td colspan="5"><input type="text" name="actEmpleoAnterior2" class="input2" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">¿Podemos solicitar informes de usted?</th>
+                  <td colspan="3">SI <input  type="checkbox" value=""  name="informes_si"> NO <input  type="checkbox" value=""  name="informes_no"></td>
+                </tr>
+              </tbody>
+            
+            </table>
+          
+        </form>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container2" style="display: grid; margin-top: 50px;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2" >
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Referencias personales</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col" >Domicilio</th>
+                  <th scope="col">Télefono</th>
+                  <th scope="col">Ocupación</th>
+                  <th scope="col">Tiempo de conocerse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" name="nombrePersona1" class="input2" /></td>
+                  <td><input type="text" name="domicilioPersona1" class="input2" /></td>
+                  <td><input type="text" name="telefonoPersona1" class="input2" /></td>
+                  <td><input type="text" name="ocupacionPersona1" class="input2" /></td>
+                  <td><input type="text" name="tiempoPersona1" class="input2" /></td>
+                </tr>
+              <tr>
+                <td><input type="text" name="nombrePersona2" class="input2" /></td>
+                  <td><input type="text" name="domicilioPersona2" class="input2" /></td>
+                  <td><input type="text" name="telefonoPersona2" class="input2" /></td>
+                  <td><input type="text" name="ocupacionPersona2" class="input2" /></td>
+                  <td><input type="text" name="tiempoPersona2" class="input2" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" name="nombrePersona3" class="input2" /></td>
+                  <td><input type="text" name="domicilioPersona3" class="input2" /></td>
+                  <td><input type="text" name="telefonoPersona3" class="input2" /></td>
+                  <td><input type="text" name="ocupacionPersona3" class="input2" /></td>
+                  <td><input type="text" name="tiempoPersona3" class="input2" /></td>
+              </tr>
+                  
+                
+                
+              </tbody>
+            
+            </table>
+          
+        </form>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container2" style="display: grid; margin-top: 50px;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2" >
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Referencias personales</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col">¿Cómo se enteró de este empleo?</th>
+                  <th scope="col" >¿Tiene familiares y/o amigos que elaboren en esta empresa?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Anuncio  <input  type="checkbox" value=""  name="enterarEmpleoAnuncio">  Otro medio  <input  type="checkbox" value=""  name="enterarEmpleoOtro"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="vivePadreNo">  SI  <input  type="checkbox" value=""  name="vivePadreSi"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">¿Ha estado Afianzado?</th>
+                  <th scope="row">¿Pertenece a algún sindicato?</th>
+                </tr>
+
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="afianzadoNo">  SI  <input  type="checkbox" value=""  name="afianzadoSi"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="sidicatoNo">  SI  <input  type="checkbox" value=""  name="sindicatoSi"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">¿Tiene seguro de vida?</th>
+                  <th scope="row">¿Puede viajar?</th>
+                </tr>
+
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="seguroVidaNo">  SI  <input  type="checkbox" value=""  name="seguroVidaSi"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="viajarNo">  SI  <input  type="checkbox" value=""  name="viajarSi"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">¿Está dispuesto a cambiar de lugar de residencia?</th>
+                  <th scope="row">¿Fecha en que podría presentarse a trabajar?</th>
+                </tr>
+
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="cambiarResidenciaNo">  SI  <input  type="checkbox" value=""  name="cambairResidenciaSi"></td>
+                  <td> <input type="date" name="fechaPresentarTrabajar" class="input2" /></td>
+                </tr>               
+                
+              </tbody>
+            
+            </table>
+          
+        </form>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container2" style="display: grid; margin-top: 100px;">
+    <span class="big-circle"></span>
+    <img src="img/shape.png" class="square" alt="" />
+    <div class="form2" >
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <form action="index.html" autocomplete="off">
+          <h3 class="title">Datos económicos</h3>
+          <div class="input-container">
+            <table class="table table-bordered">
+          
+              <thead>
+                <tr>
+                  <th scope="col">¿Tiene usted otros ingresos?</th>
+                  <th scope="col">Importe mensual $</th>
+                  <th scope="col" >¿Su conyuge trabaja?</th>
+                  <th scope="col">Percepción mensual $</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="otrosIngresosNo">  SI  <input  type="checkbox" value=""  name="otrosIngresosSi"></td>
+                  <td><input type="text"  name="importeMensualIngresos" class="input2"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="conyugeTrabajaNo">  SI  <input  type="checkbox" value=""  name="conyugeTrabajaSi"></td>
+                  <td><input type="text"  name="percepcionMensual" class="input2"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">¿Vive en casa propia?</th>
+                  <th scope="row">Importe mensual $</th>
+                  <th scope="row">¿Paga renta?</th>
+                  <th scope="row">Renta mensual $</th>
+                </tr>
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="casaPropiaNo">  SI  <input  type="checkbox" value=""  name="casaPropiaSi"></td>
+                  <td><input type="text"  name="importeMensualCasa" class="input2"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="rentaNo">  SI  <input  type="checkbox" value=""  name="rentaSi"></td>
+                  <td><input type="text"  name="rentaMensual" class="input2"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">¿Tiene automovil propio?</th>
+                  <th scope="row"><p>Placas  |  Marca  |  Modelo</p></th>
+                  <th scope="row">¿Tienes deudas?</th>
+                  <th scope="row">Importe $</th>
+                </tr>
+                <tr>
+                  <td> NO  <input  type="checkbox" value=""  name="autoNo">  SI  <input  type="checkbox" value=""  name="autoSi"></td>
+                  <td><input type="text"  name="autoPlaca" class="input2" placeholder="Placas"><input type="text"  name="autoMarca" class="input2" placeholder="Marca"><input type="text"  name="autoModelo" class="input2" placeholder="Modelo"></td>
+                  <td> NO  <input  type="checkbox" value=""  name="deudasNo">  SI  <input  type="checkbox" value=""  name="deudasSi"></td>
+                  <td><input type="text"  name="importeDeudas" class="input2"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Ingresos $ <input type="text"  name="ingresos" class="input2"> <br>Egresos $ <input type="text"  name="egresos" class="input2"></th>
+                  <th scope="row">Ahorros $ <input type="text"  name="ahorros" class="input2"> <br>Total (gastos mensuales)<input type="text"  name="totalGastosMensuales" class="input2"></th>
+                  <th scope="row" colspan="2">¿Cuánto abona mensualmente?<input type="text"  name="abonoMensual" class="input2"></th>
+                  
+                </tr>
+
+              </tbody>
+            
+            </table>
+          
+        </form>
+        <!--se agregan los botones -->
+    <div class="" style="display: flex; justify-content: center; ">
+      <button type="button"  class="btn2" name="Guardar" onclick="startCountdown()">Guardar solicitud</button>
+      
+    </div>
+      </div>
+    </div> 
+  </div>
+
+  <!--------------MODAL---------->
+  <div id="myModal" class="modal">
+      <div class="modal-content">
+        <p> ¡REGISTRO EXITOSO! <br> Tu solicitud se abrirá en:</p>
+        <p id="countdown">3</p>
+      </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>

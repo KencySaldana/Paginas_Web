@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KencySystem | Vista Productos</title>
+  <title>KencySystem | Productos</title>
 
   <!------------ESTILOS DE LA PÁGINA------------>
   <link rel="stylesheet" type="text/css" href="dist/fontawesome-5/fontawesome-css/all.css">
@@ -16,10 +16,10 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-------------END ESTILOS----------------->
 
-
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
@@ -225,7 +225,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link" target="_BLANK">
+                <a href="http://kencysaldanapractica.me/Practica_Final_JS" class="nav-link" target="_BLANK">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Práctica No. 5</p>
                 </a>
@@ -241,182 +241,72 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                  <div>
+                    <br>
+                    <br>
+                  </div>
+                  <!-------------------- INICIA TABLA------------------------------------->
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">TABLA DE CLIENTES</h3>
+                      <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                          <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-    <!-------------------- INICIA MAIN DEL FILTRO------------------------------------->
-    <main>
-    <header>
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                              <i class="fas fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                      <table class="table table-hover text-nowrap">
+                        <thead>
+                          <tr id = "table_head">
+                          </tr>
+                        </thead>
+                        <tbody id="table_body">
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+      
+                  <!-------------------- END TABLA------------------------------------->
+                </div>
+                <div>
+                  <col>
+                   <button type="button" id="actualizar" class="btn btn-primary" >  Actualizar  </button>
+                  <col width="20px">
+                   <button type="button" id="limpiar" class="btn btn-primary" >  Limpiar  </button>
+                </div>
+              </div>
+        </div>
+    </section>
 
-      <!-- Encabezados de categorías -->
-      <ul class="indicator">
-        <li data-filter="all" class="active"><a href="#">All</a></li>
-        <li data-filter="Verduras"><a href="#">Verduras</a></li>
-        <li data-filter="Frutas"><a href="#">Frutas</a></li>
-        <li data-filter="Lácteos"><a href="#">Lácteos</a></li>
-        <li data-filter="Mariscos"><a href="#">Mariscos</a></li>
-      </ul>
-      <!-- Termina Encabezados de categorías -->
-    </header>
-
-
-    <!------ COMIENZAN LOS ITEM DE LOS PRODUCTOS ------>
-    <div class="product-field">
-      <ul class="items">
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/papa.png" alt="">
-          </picture>
-          <div class="detail">            
-            <strong>Verduras</strong>
-            <span>Papa blanca 1 Kg</span>
-          </div>
-          <h4>$42.95</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/tomate.png" alt="">
-          </picture>
-          <div class="detail">          
-            <strong>Verduras</strong>
-            <span>Tomáte Huaje Supremo 1 Kg</span>
-          </div>
-          <h4>$29.95</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/cebolla.png" alt="">
-          </picture>
-          <div class="detail">         
-            <strong>Verduras</strong>
-            <span>Cebolla Blanca 1 Kg</span>
-          </div>
-          <h4>$14.95</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/camaron.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Mariscos</strong>
-            <span>Camarón Gigante 1 Kg</span>
-          </div>
-          <h4>$189.89</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/zanahoria.png" alt="">
-          </picture>
-          <div class="detail">           
-            <strong>Verduras</strong>
-            <span>Zanahoria 1 Kg</span>
-          </div>
-          <h4>$14.95</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/pina.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Frutas</strong>
-            <span>Piña Miel Gold Pza</span>
-          </div>
-          <h4>$62.00</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/sandia.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Frutas</strong>
-            <span>Sandia Sangria 1 Kg</span>
-          </div>
-          <h4>$20.50</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/pepino.png" alt="">
-          </picture>
-          <div class="detail">           
-            <strong>Frutas</strong>
-            <span>Pepino Fresco 1 Kg</span>
-          </div>
-          <h4>$33.90</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/mango.png" alt="">
-          </picture>
-          <div class="detail">            
-            <strong>Frutas</strong>
-            <span>Mango Ataulfo Supremo 1 Kg</span>
-          </div>
-          <h4>$57.00</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/helado.png" alt="">
-          </picture>
-          <div class="detail">            
-            <strong>Lácteos</strong>
-            <span>Helado Napolitano Holanda 473 ml</span>
-          </div>
-          <h4>$164.00</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/leche.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Lácteos</strong>
-            <span>Leche deslactosada 1L.</span>
-          </div>
-          <h4>$15.78</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/pescado.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Mariscos</strong>
-            <span>Pescado Sin Escamnas 1 Kg</span>
-          </div>
-          <h4>$135.78</h4>
-        </li>
-
-        <li data-category="" data-price="">
-          <picture>
-            <img src="dist/img/ostiones.png" alt="">
-          </picture>
-          <div class="detail">
-            <strong>Mariscos</strong>
-            <span>Ostiones Crudos 1 Kg</span>
-          </div>
-          <h4>$278.64</h4>
-        </li>
-      </ul>
-      <!----- TERMINAN ITEMS ------->
-    </div>
-    <!----------------------- TERMINA MAIN------------>
-  </main>
   </div>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
-
-<!-- SCRIPTS -->
+<!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <script src="dist/js/adminlte.min.js"></script>
-<!-- SCRIP ESPECIFICO DE LA PÁGINA-->
-<script type="text/javascript" src="dist/js/category_vista.js"></script>
+<!-- Page specific script -->
+<script type="text/javascript" src="dist/js/clientes_tabla.js"></script>
 </body>
 </html>
