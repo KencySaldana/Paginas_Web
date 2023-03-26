@@ -1,7 +1,7 @@
 <?php
 
   //Conexión a base de datos
-  $con=mysqli_connect("localhost","root","","practica5");
+  $con=mysqli_connect("localhost","admin","52f9d1ac770d01b9be9df4c1d5edfd3495784ea1c5e03532","practica5");
 
   //Revisar conexión
   if($con == false) {
