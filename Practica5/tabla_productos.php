@@ -32,8 +32,7 @@
   //Traer tabla de la base de datos
   $tabla = "SELECT * FROM productos";
   $resultado = mysqli_query($con, $tabla);
-  //cerrar la conexión
-  //mysqli_close($con);
+
 
 
 ?>  
@@ -102,7 +101,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="dist/img/upv.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Práctica No.2</span>
+      <span class="brand-text font-weight-light">Práctica No.5</span>
     </a>
 
     <!-- Sidebar -->
@@ -172,7 +171,9 @@
                           echo "<td>" . $fila["precio_compra"] . "</td>";
                           echo "<td>" . $fila["precio_venta"] . "</td>";
                           echo "</tr>";
-                      }
+                      };
+		       //cerrar la conexión
+			mysqli_close($con);
                       ?>
                       </tbody>
                       </table>
