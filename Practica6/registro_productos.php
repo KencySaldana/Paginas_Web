@@ -197,7 +197,6 @@ if(isset($_POST['descripcion_producto'])&& isset($_POST['precio_venta'])&& isset
                       
                     <select class="form-select" aria-label="Default select example" name="categoriaProducto">                      
                       <?php foreach ($r as $fila): ?>
-                      <option selected>Open this select menu</option>
                       <option value="<?php echo $fila['ID']; ?>">
                       <?php echo $fila['descripcion']; ?>
                       </option>
