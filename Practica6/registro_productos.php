@@ -1,3 +1,16 @@
+<?php
+  require_once("db/database_utilities.php");
+
+  $r = categoriasActivas(); 
+
+//Se revisa que las variables nombre y email se esten recibiendo mediante el metodo POST para despues continuar
+//con la insercion de los valores ingresados en la base de datos, para finalmente redireccionar al inicio
+if(isset($_POST['descripcion_producto'])&& isset($_POST['precio_venta'])&& isset($_POST['precio_compra'])&&isset($_POST['categoriaProducto'])) {
+  addProducto($_POST['descripcion_producto'],$_POST['precio_venta'],$_POST['precio_compra'],$_POST['categoriaProducto']);
+  //header("location: registro_productos.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +71,7 @@
       <!-- Brand Logo -->
       <a href="#" class="brand-link">
         <img src="dist/img/upv.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Práctica No.2</span>
+        <span class="brand-text font-weight-light">Práctica No.6</span>
       </a>
 
       <!-- Sidebar -->
@@ -79,15 +92,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="Formulario.html" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p>
-                  Registro de usuarios
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="registro_products.html" class="nav-link">
+              <a href="registro_productos.php" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Registro de productos
@@ -95,137 +100,22 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="category_products.html" class="nav-link">
+              <a href="category_products.php" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Registro de categoría de productos
+                  Registro de categorias
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="category_vista.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Vista de productos
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="tabla.html" class="nav-link">
+              <a href="tabla_productos.php" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Tabla de productos
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="formulario_clientes.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Registro de clientes
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="formulario_proveedores.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Registro de proveedores
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="tabla_clientes.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Tabla de clientes
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="tabla_proveedores.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Tabla de proveedores
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                  Kency Marisol Saldana 
-                  <center>
-                  Martínez
-                  </center>
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 2 (Actual)</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="http://kencysaldanapractica.me/Practica3/" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                  Yanel Azucena Mireles 
-                  <center>
-                  Sena
-                  </center>
-                  
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                  Prácticas en Equipo
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="http://kencysaldanapractica.me/Practica4/" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 4</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="http://kencysaldanapractica.me/Practica_Final_JS" class="nav-link" target="_BLANK">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Práctica No. 5</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+      
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -254,7 +144,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <form action = "tabla_productos.php" method="post">
+          <form action = "registro_productos.php" method="post">
             <div class="card card-default">
               <div class="card-header">
                 <h3 class="card-title">Datos del nuevo producto</h3>
@@ -272,13 +162,8 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Código:</label>
-                      <input type="number" class="form-control" name="codigo_producto" placeholder="Introduce un número">
-                    </div>
-                    <!-- /.form-group -->
-                    <div class="form-group">
                       <label>Nombre:</label>
-                      <input type="text" class="form-control" name="nombre_producto" placeholder="Introduce el nombre del producto">
+                      <input type="text" class="form-control" name="descripcion_producto" placeholder="Introduce el nombre del producto">
                     </div>
                     <!-- /.form-group -->
                   </div>
@@ -301,18 +186,33 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                         </div>
-                        <input type="text" class="form-control" name = "precio venta">
+                        <input type="text" class="form-control" name = "precio_venta">
                       </div>
                       <!-- /.input group -->
                     </div>
                     <!-- /.form group -->
-
+                    <div>
+                    <label>Categoria:</label>
+                    <div>
+                      
+                    <select class="form-select" aria-label="Default select example" name="categoriaProducto">                      
+                      <?php foreach ($r as $fila): ?>
+                      <option selected>Open this select menu</option>
+                      <option value="<?php echo $fila['ID']; ?>">
+                      <?php echo $fila['descripcion']; ?>
+                      </option>
+                      <?php endforeach; ?>
+                    </select>
+                    </div>
+                    <br>
+                    <br>
+                    </div>
                 </div>
                 <!-- /.col -->
               </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <button type="submit" class="hi">Guardar datos</button>
+              <button type="submit" class="btn btn-primary" id="" >Guardar datos</button>
             </div>
           </div>
           <!-- /.card -->
