@@ -6,6 +6,8 @@
 if(isset($_POST['descripcionCategoria'])) {
   addCategoria($_POST['descripcionCategoria']);
   //header("location: registro_productos.php");
+}else{
+  echo "<script src='dist/js/validacion_productos.js'></script>";
 }
 ?>
 

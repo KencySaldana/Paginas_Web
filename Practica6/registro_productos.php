@@ -211,7 +211,7 @@ if(isset($_POST['descripcion_producto'])&& isset($_POST['precio_venta'])&& isset
               </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary" id="" >Guardar datos</button>
+              <button type="submit" class="btn btn-primary" id="validar" >Guardar datos</button>
             </div>
           </div>
           <!-- /.card -->
