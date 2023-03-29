@@ -8,8 +8,6 @@
 if(isset($_POST['descripcion_producto'])&& isset($_POST['precio_venta'])&& isset($_POST['precio_compra'])&&isset($_POST['categoriaProducto'])) {
   addProducto($_POST['descripcion_producto'],$_POST['precio_venta'],$_POST['precio_compra'],$_POST['categoriaProducto']);
   //header("location: registro_productos.php");
-}else{
-  echo "<script src='dist/js/validacion_productos.js'></script>";
 }
 ?>
 <!DOCTYPE html>
