@@ -1,3 +1,18 @@
+<?php
+    
+    require_once("dist/database/database_utilities.php");
+
+    //Se verifica si los datos fueron tomados
+   
+    if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {  
+        
+        addTienda($_POST['nombreTienda'],$_POST['estado']);
+        //header("location: registro_productos.php");
+    }else{
+        echo 'ERROR';
+    };
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,9 +84,9 @@
                                                 <div class="card card-bordered h-100">
                                                     <div class="card-inner">
                                                         <div class="card-head">
-                                                            <h4 class="card-title">Editar tienda</h4>
+                                                            <h4 class="card-title">Registrar tienda</h4>
                                                         </div>
-                                                        <form action="#">
+                                                        <form method="POST" action="html/pages/PROYECTO/registrarTienda.php">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreTienda">Nombre</label>
                                                                 <div class="form-control-wrap">
@@ -87,8 +102,8 @@
                                                                                 <div class="preview-block">
                                                                 
                                                                                     <div class="custom-control custom-radio checked">
-                                                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio1">Activa</label>
+                                                                                        <input type="radio" id="estado" name="estado" value=1 class="custom-control-input">
+                                                                                        <label class="custom-control-label" for="estado">Activa</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -97,8 +112,8 @@
                                                                                 <div class="preview-block">
                                                                                     
                                                                                     <div class="custom-control custom-radio">
-                                                                                        <input type="radio" id="customRadio2" name="customRadio" checked="" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio2">Desactivada</label>
+                                                                                        <input type="radio" id="estado" name="estado" checked="" value="1" class="custom-control-input">
+                                                                                        <label class="custom-control-label" for="estado">Desactivada</label>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
