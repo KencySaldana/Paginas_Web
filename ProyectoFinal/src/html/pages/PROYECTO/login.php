@@ -10,15 +10,18 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
     
     // Validar el usuario y contraseña
     if ($username == SUPERADMIN && $password == PASS){
-        // El usuario y contraseña son válidos, redirigir a una página de bienvenida
+        // El usuario y contraseña son válidos, redirigir al dashboard de superAdmin
         header('location: html/pages/PROYECTO/dashboard.php');
     } else {
-        // El usuario y/o contraseña son inválidos, mostrar un mensaje de error
+        if (validarUsuario($username, $password)){
+            // El usuario y contraseña son válidos, redirigir al dashboard  de adminTienda
+            header('location: html/pages/PROYECTO/dashboard.php');
+        }
+        // El usuario y/o contraseña son inválidos, mostrar un modal de error
         echo "<script>
-                $(document).ready((e)=>{
-                    e.preventDefault();
-                    $('.modal-dialog').modal('show');
-                });
+            function showModal() {
+                $('#region').modal('show');
+            };
             </script>";
     };
 }else{

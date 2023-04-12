@@ -1,20 +1,3 @@
-<?php
-
-include_once('dist/database/database_utilities.php');
-
-$user = $_GET["us"];
-
-//Se verifica si los datos fueron tomados
-if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario'])&& isset($_POST['email'])&& isset($_POST['password'])){
-        
-    updateUsuario($_POST['nombre'],$_POST['apellido'],$_POST['usuario'],$_POST['password'],$_POST['email'],$user);
-    //header("location: registro_productos.php");
-}else{
-    echo 'ERROR';
-};
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +10,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Editar Usuario</title>
+    <title>Registrar categoría</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
@@ -86,54 +69,24 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                 <div class="card card-bordered h-100">
                                                     <div class="card-inner">
                                                         <div class="card-head">
-                                                            <h4 class="card-title">Editar Usuario</h4>
+                                                            <h4 class="card-title">Registrar categoría</h4>
                                                         </div>
-                                                        <form method="POST" action="html/pages/PROYECTO/editarUsuario.php?us=<?php echo($user);?>">
-                                                        <div class="row g-4">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="nombre">Nombre</label>
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id = "nombre" name="nombre">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="apellido">Apellido</label>
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="apellido" name="apellido">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="phone-no-1">Usuario</label>
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="usuario" name="usuario">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="email">Email</label>
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="email" name="email">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="password">Password</label>
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="password" name="password">
-                                                                    </div>
-                                                                </div>
-                                                            </div>                                                          
-                                                            <div class="col-12">
-                                                        
+                                                        <form action="#">
                                                             <div class="form-group">
-                                                                <button type="submit" class="btn btn-lg btn-primary">Actualizar</button>
+                                                                <label class="form-label" for="nombreCategoria">Nombre</label>
+                                                                <div class="form-control-wrap">
+                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="descripcioCategoria">Descripción</label>
+                                                                <div class="form-control-wrap">
+                                                                    <input type="text" class="form-control" id="descripcioCategoria" name="descripcioCategoria">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <button type="submit" class="btn btn-lg btn-primary">Registrar</button>
                                                             </div>
                                                         </form>
                                                     </div>

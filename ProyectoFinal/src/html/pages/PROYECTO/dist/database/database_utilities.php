@@ -43,15 +43,15 @@
 
 
 	
-	//Funcion que permite actualizar una tienda
-	function updateUsuario($nombre,$apellido, $user_name, $user_password_hash, $email, $user_id){
+	//Funcion que permite actualizar un usuario
+	function updateUsuario($nombre, $apellido, $user_name, $user_password_hash, $email, $user_id){
 		global $pdo;
-	
-		$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', user_name = '$user_name', user_password_hash = '$user_password_hash', email = '$email', WHERE user_id = $user_id";
+
+		$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', user_name = '$user_name', user_password_hash = '$user_password_hash', email = '$email' WHERE user_id = $user_id";
 		$statement = $pdo->prepare($sql);
-	
 		$statement->execute();
 	}
+
 	
 
 	//Funcion que permite eliminar una tienda
@@ -64,11 +64,44 @@
 		$statement->execute();
 	}
 
-	//Funcion que permite agregar un registro o modificarlo en la tabla categorias
-	function addCategoria($descripcionCategoria){
+	// Consulta SQL para buscar al usuario en la base de datos
+	function verificarUsuario($username, $email) {
+		global $pdo;
+		$sql = "SELECT * FROM usuarios WHERE nombre_usuario = :username OR correo_electronico = :email";
+		$statement = $pdo->prepare($sql);
+		$statement->execute(['username' => $username, 'email' => $email]);
+		$user = $statement->fetch(PDO::FETCH_ASSOC);
+	}
+
+	function validarUsuario($usuario, $contrasena) {
+		global $pdo;
+	
+		// Buscamos el usuario por nombre de usuario o email
+		$sql = "SELECT * FROM users WHERE user_name = :usuario OR email = :usuario";
+		$statement = $pdo->prepare($sql);
+		$statement->bindParam(':usuario', $usuario);
+		$statement->execute();
+		$usuario_bd = $statement->fetch(PDO::FETCH_ASSOC);
+	
+		// Si el usuario no existe, retornamos false
+		if (!$usuario_bd) {
+			return false;
+		}
+	
+		// Si el usuario existe, comparamos la contraseña
+		if (password_verify($contrasena, $usuario_bd['user_password_hash'])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+
+	//Funcion que permite agregar un registro en la tabla categorias
+	function addCategoria($name, $descripcionCategoria){
 		global $pdo;
 
-		$sql = "INSERT INTO categoria (descripcion) VALUES('$descripcionCategoria')";
+		$sql = "INSERT INTO categoria (nombre_categoria, descripcion_categoria,	date_add,	id_tienda	) VALUES('$descripcionCategoria')";
 		$statement = $pdo->prepare($sql);
 
 		$statement->execute();
