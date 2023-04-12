@@ -86,7 +86,7 @@
                                                         <div class="card-head">
                                                             <h4 class="card-title">Registrar tienda</h4>
                                                         </div>
-                                                        <form method="POST" action="html/pages/PROYECTO/registrarTienda.php">
+                                                        <form method="POST" action="html/pages/PROYECTO/registrarTienda.php?us=<?php echo($fila['id_tienda']);?>">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreTienda">Nombre</label>
                                                                 <div class="form-control-wrap">

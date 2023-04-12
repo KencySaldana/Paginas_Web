@@ -19,6 +19,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
                 $('#modal-dialog').modal('show');
                 });
             </script>";
+            
     };
 }else{
     echo 'Error en obtencion de datos';

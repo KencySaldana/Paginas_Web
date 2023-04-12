@@ -1,3 +1,18 @@
+<?php
+    
+    require_once("dist/database/database_utilities.php");
+
+    $id = $_GET['t'];
+    //Se verifica si los datos fueron tomados
+   
+    if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario'])&& isset($_POST['email'])&& isset($_POST['password'])){
+        addUsuario($_POST['nombre'],$_POST['apellido'],$_POST['usuario'],$_POST['password'],$_POST['email'],$id);
+        //header("location: registro_productos.php");
+    }else{
+        echo 'ERROR';
+    };
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,48 +84,59 @@
                                                 <div class="card card-bordered h-100">
                                                     <div class="card-inner">
                                                         <div class="card-head">
-                                                            <h4 class="card-title">Editar tienda</h4>
+                                                            <h4 class="card-title">Registrar Usuario</h4>
                                                         </div>
-                                                        <form action="#">
-                                                            <div class="form-group">
-                                                                <label class="form-label" for="nombreTienda">Nombre</label>
-                                                                <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreTienda" name="nombreTienda">
+                                                        <form method="POST" action="html/pages/PROYECTO/registrarUsuario.php?t=<?php echo($id);?>">
+                                                        <div class="row g-4">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="nombre">Nombre</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" class="form-control" id = "nombre" name="nombre">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                
-                                                                <div class="form-control-wrap">
-                                                                    <ul class="custom-control-group g-3 align-center flex-wrap">
-                                                                        
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                
-                                                                                    <div class="custom-control custom-radio checked">
-                                                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio1">Activa</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                                    
-                                                                                    <div class="custom-control custom-radio">
-                                                                                        <input type="radio" id="customRadio2" name="customRadio" checked="" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio2">Desactivada</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        
-                                                                    </ul>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="apellido">Apellido</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" class="form-control" id="apellido" name="apellido">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="form-group">
-                                                                <button type="submit" class="btn btn-lg btn-primary">Actualizar</button>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="phone-no-1">Usuario</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" class="form-control" id="usuario" name="usuario">
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </form>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="email">Email</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" class="form-control" id="email" name="email">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="password">Password</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" class="form-control" id="password" name="password">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-lg btn-primary">Registrar</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                     </div>
                                                 </div>
                                             </div>
