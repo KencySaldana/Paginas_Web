@@ -53,6 +53,8 @@
                             <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
+                                    <button class="btn btn-primary nk-block-title" style="margin-left: auto;">Agregar nueva tienda</button> <!-- boton AGREGAR NUEVA TIENDA-->
+                                
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
                                     <a href="html/crm/index.html" class="nk-menu-link">
