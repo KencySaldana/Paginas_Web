@@ -98,12 +98,28 @@
 	
 
 	//Funcion que permite agregar un registro en la tabla categorias
-	function addCategoria($name, $descripcionCategoria){
+	function addCategoria($name, $descripcionCategoria, $id_tienda){
 		global $pdo;
-
-		$sql = "INSERT INTO categoria (nombre_categoria, descripcion_categoria,	date_add,	id_tienda	) VALUES('$descripcionCategoria')";
+		$sql = "INSERT INTO categorias (nombre_categoria, descripcion_categoria,	date_add,	id_tienda	) VALUES('$name', '$descripcionCategoria', NOW(), '$id_tienda')";
 		$statement = $pdo->prepare($sql);
+		$statement->execute();
+	}
 
+	//Funcion que permite actualizar categoria
+	function updateCategoria($name, $descripcionCategoria, $id_categoria){
+		global $pdo;
+		$sql = "UPDATE categorias SET nombre_categoria = '$name', descripcion_categoria = '$descripcionCategoria' WHERE id_categoria = $id_categoria";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+	}
+
+	
+
+	//Funcion que permite eliminar una tienda
+	function deleteCategoria($id_categoria){
+		global $pdo;
+		$sql = "DELETE FROM categorias WHERE id_categoria = $id_categoria";
+		$statement = $pdo->prepare($sql);
 		$statement->execute();
 	}
 
@@ -118,9 +134,9 @@
 
 
 	//Funcion que trae las categorias activas
-	function categoriasActivas(){
+	function Mostrarcategorias(){
 		global $pdo;
-		$sql = "SELECT * FROM categoria";
+		$sql = "SELECT * FROM categorias";
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
 		$results=$statement->fetchAll();

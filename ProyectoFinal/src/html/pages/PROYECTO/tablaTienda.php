@@ -141,9 +141,15 @@
                                         <?php if(!$r){ ?> 
                                             <center>
                                                 <h2>NO HAY REGISTOS</h2>
+                                                <a  href="html/pages/PROYECTO/registrarTienda.php"><button class="btn btn-lg btn-primary btn-block" name="btnSignIn">Agregar Tienda</button></a>
                                             </center>
                                         <?php }else{ ?> 
                                         <div class="card card-bordered card-preview">
+                                            <br>
+                                            <div style="width: 900px; padding-left: 700px;">
+                                                <a  href="html/pages/PROYECTO/registrarTienda.php"><button class="btn btn-lg btn-primary btn-block" name="btnSignIn">Agregar Tienda</button></a>
+                                            </div>
+                                            <br>
                                             <table class="table table-orders">
                                                 <thead class="tb-odr-head">
                                                     <tr class="tb-odr-item">

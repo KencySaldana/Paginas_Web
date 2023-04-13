@@ -1,3 +1,19 @@
+<?php
+    
+    require_once("dist/database/database_utilities.php");
+
+    $id = $_GET['t'];
+
+    //Se verifica si los datos fueron tomados
+    if(isset($_POST['nombreCategoria'])&& isset($_POST['descripcionCategoria'])) {  
+        
+        addCategoria($_POST['nombreCategoria'],$_POST['descripcionCategoria'], $id);
+        //header("location: registro_productos.php");
+    }else{
+        echo 'ERROR';
+    };
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +87,7 @@
                                                         <div class="card-head">
                                                             <h4 class="card-title">Registrar categoría</h4>
                                                         </div>
-                                                        <form action="#">
+                                                        <form method="POST" action="html/pages/PROYECTO/registrarCategoria.php">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreCategoria">Nombre</label>
                                                                 <div class="form-control-wrap">
@@ -79,9 +95,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="form-label" for="descripcioCategoria">Descripción</label>
+                                                                <label class="form-label" for="descripcionCategoria">Descripción</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="descripcioCategoria" name="descripcioCategoria">
+                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria">
                                                                 </div>
                                                             </div>
 

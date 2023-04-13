@@ -11,7 +11,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
     // Validar el usuario y contraseña
     if ($username == SUPERADMIN && $password == PASS){
         // El usuario y contraseña son válidos, redirigir al dashboard de superAdmin
-        header('location: html/pages/PROYECTO/dashboard.php');
+        header('location: tablaTienda.php');
     } else {
         if (validarUsuario($username, $password)){
             // El usuario y contraseña son válidos, redirigir al dashboard  de adminTienda
@@ -25,7 +25,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
             </script>";
     };
 }else{
-    echo 'Error en obtencion de datos';
+    echo '';
 };
 ?>
 

@@ -4,11 +4,11 @@
     $idUsuario = $_GET["us"];
     $delete = $_GET["dl"];
     if ($delete){
-        deleteUsuario($idUsuario);
+        deleteCategoria($idUsuario);
     };
-    deleteUsuario($idUsuario);
+    deleteCategoria($idUsuario);
   };
-  $r = mostrarUsuarios();
+  $r = mostrarCategorias();
 ?> 
 
 <!DOCTYPE html>
@@ -55,40 +55,9 @@
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/dashboard.php" class="nk-menu-link">
+                                    <a href="html/crm/index.html" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Dashboard</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaCategorias.php" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Categorías</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaInventario.php" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Inventario</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaUsuarios.php" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Usuarios</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/realizarVenta.php" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Realizar venta</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Historial de ventas</span>
+                                        <span class="nk-menu-text">CRM Panel</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 
@@ -96,7 +65,6 @@
                         </div><!-- .nk-sidebar-menu -->
                     </div><!-- .nk-sidebar-content -->
                 </div><!-- .nk-sidebar-element -->
-            
             </div>
             <!-- sidebar @e -->
             <!-- wrap @s -->
@@ -167,15 +135,15 @@
                                     <div class="nk-block nk-block-lg">
                                         <div class="nk-block-head">
                                             <div class="nk-block-head-content">
-                                                <h4 class="nk-block-title">Usuarios Registrados</h4>
+                                                <h4 class="nk-block-title">Tiendas Registradas</h4>
                                             </div>
                                         </div>
                                         <?php if(!$r){ ?> 
                                             <center>
-                                                <h2>NO HAY REGISTROS</h2>
+                                                <h2>NO HAY REGISTOS</h2>
                                             </center>
                                         <?php }else{ ?> 
-                                        <div class="card card-bordered card-preview">
+                                            <div class="card card-bordered card-preview">
                                             <table class="table table-orders">
                                                 <thead class="tb-odr-head">
                                                     <tr class="tb-odr-item">
@@ -184,13 +152,7 @@
                                                             <span class="tb-odr-date d-none d-md-inline-block">Nombre</span>
                                                         </th>
                                                         <th class="tb-odr-amount">
-                                                            <span class="tb-odr-date d-none d-md-inline-block">Apellido</span>
-                                                        </th>
-                                                        <th class="tb-odr-amount">
-                                                            <span class="tb-odr-date d-none d-md-inline-block">Usuario</span>
-                                                        </th>
-                                                        <th class="tb-odr-amount">
-                                                            <span class="tb-odr-date d-none d-md-inline-block">Email</span>
+                                                            <span class="tb-odr-date d-none d-md-inline-block">Descripción</span>
                                                         </th>
                                                         <th class="tb-odr-amount">
                                                             <span class="tb-odr-date d-none d-md-inline-block">Fecha Agregado</span>
@@ -202,27 +164,22 @@
                                                     <?php foreach ($r as $fila): ?>
                                                         <tr class="tb-odr-item">
                                                             <td class="tb-odr-info">
-                                                                <span class="tb-odr-id"><a href="#"><?php echo $fila['user_id']; ?></a></span>
-                                                                <span class="tb-odr-date"><?php echo $fila['nombre']; ?></span>
+                                                                <span class="tb-odr-id"><a href="#"><?php echo $fila['id_categoria']; ?></a></span>
+                                                                <span class="tb-odr-date"><?php echo $fila['nombre_categoria']; ?></span>
                                                             </td>   
                                                         <td class="tb-odr-amount"> 
                                                         <span class="tb-odr-status">
-                                                            <span class="tb-odr-date"><?php echo $fila['apellido']; ?></span>
-                                                        </span>
-                                                        </td>
-                                                        <td class="tb-odr-amount"> 
-                                                        <span class="tb-odr-status">
-                                                            <span class="tb-odr-date"><?php echo $fila['user_name']; ?></span>
-                                                        </span>
-                                                        </td>
-                                                        <td class="tb-odr-amount"> 
-                                                        <span class="tb-odr-status">
-                                                            <span class="tb-odr-date"><?php echo $fila['email']; ?></span>
+                                                            <span class="tb-odr-date"><?php echo $fila['descripcion_categoria']; ?></span>
                                                         </span>
                                                         </td>
                                                         <td class="tb-odr-amount"> 
                                                         <span class="tb-odr-status">
                                                             <span class="tb-odr-date"><?php echo $fila['date_add']; ?></span>
+                                                        </span>
+                                                        </td>
+                                                        <td class="tb-odr-amount"> 
+                                                        <span class="tb-odr-status">
+                                                            <span class="tb-odr-date"><?php echo $fila['id_tienda']; ?></span>
                                                         </span>
                                                         </td>
                                                         <td class="tb-odr-action">
@@ -244,6 +201,7 @@
                                             </table>
                                         </div><!-- .card-preview -->
                                         <?php }?> 
+                               
                                     </div><!-- nk-block -->
                                     
                                 </div><!-- .components-preview -->
@@ -284,7 +242,7 @@
                 </div>
                 <div class="modal-body">
                         <center>
-                            <h5>¿Está seguro que desea eliminar el usuario?</h5>
+                            <h5>¿Está seguro que desea eliminar la tienda?</h5>
                         </center>
                 </div>
                 <div class="modal-footer ">
@@ -305,7 +263,7 @@
             const btnEliminar = document.querySelector('#btn');
 
             btnEliminar.addEventListener('click', (e)=>{
-                window.open("html/pages/PROYECTO/tablaUsuario.php?us=" + id + "&dl=1");
+                window.open("html/pages/PROYECTO/tablaTienda.php?us=" + id + "&dl=1");
             });
 
         };
