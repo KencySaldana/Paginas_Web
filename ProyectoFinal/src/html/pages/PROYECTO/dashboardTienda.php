@@ -35,19 +35,59 @@
                         </a> -->
                     </div>
                 </div><!-- .nk-sidebar-element -->
+               <!-- Se está creando un menú de barra lateral para una aplicación web con
+                enlaces a diferentes páginas, como tablero, categorías, inventario, usuarios, ventas
+                realizadas e historial de ventas.   -->
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                            <ul class="nk-menu">
+                        <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/dashboardTienda.php" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a categorias -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a inventarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a usuarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a realizar venta -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/realizarVenta.php" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Realizar venta</span>
+                                    </a>
+                                </li>
+                                <!-- enlace historial de ventas -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Historial de ventas</span>
+                                    </a>
+                                </li>
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
@@ -58,6 +98,7 @@
             <!-- wrap @s -->
             <div class="nk-wrap ">
                 <!-- main header @s -->
+
                 <!-- main header @s -->
                 <div class="nk-header nk-header-fixed is-light">
                     <div class="container-fluid">

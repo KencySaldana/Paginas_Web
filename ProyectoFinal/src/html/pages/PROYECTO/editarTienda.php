@@ -2,13 +2,27 @@
 
 include_once('dist/database/database_utilities.php');
 
-$user = $_GET["us"];
+//verificar la existencia de la variable de sesión "tipoUsuario"
+session_start();
+if(isset($_SESSION['tipoUsuario'])){
+    if($_SESSION['tipoUsuario'] != 'superAdmin'){
+        // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a la página de inicio de sesión.
+        header('location: login.php');
+        exit();
+    }
+}else{
+    header('location: login.php');
+    exit();
+}
+
+$id_tienda = $_GET["t"];
 
 //Se verifica si los datos fueron tomados
-if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {  
-        
-    updateTienda($_POST['nombreTienda'],$_POST['estado'], $user);
-    //header("location: registro_productos.php");
+if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) { 
+   
+    updateTienda($_POST['nombreTienda'],$_POST['estado'], $id_tienda);
+    
+
 }else{
     echo 'ERROR';
 };
@@ -17,6 +31,7 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <base href="../../../">
@@ -59,9 +74,9 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/tablaTienda.php" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Tiendas</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 
@@ -88,7 +103,7 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                                                         <div class="card-head">
                                                             <h4 class="card-title">Editar tienda</h4>
                                                         </div>
-                                                        <form method="POST" action="html/pages/PROYECTO/editarTienda.php?us=<?php echo($user);?>">
+                                                        <form method="POST" action="html/pages/PROYECTO/editarTienda.php?t=<?php echo($id_tienda);?>">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreTienda">Nombre</label>
                                                                 <div class="form-control-wrap">
@@ -97,31 +112,27 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                                                             </div>
                                                             <div class="form-group">
                                                 
-                                                                <div class="form-control-wrap">
-                                                                    <ul class="custom-control-group g-3 align-center flex-wrap">
-                                                                        
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                
-                                                                                    <div class="custom-control custom-radio checked">
-                                                                                        <input type="radio" id="estado" name="estado" value=1 class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="estado">Activa</label>
-                                                                                    </div>
-                                                                                </div>
+                                                            <div class="form-control-wrap">
+                                                                <ul class="custom-control-group g-3 align-center flex-wrap">
+                                                                    <div class="col-md-3 col-sm-6">
+                                                                        <div class="preview-block">
+                                                                            <div class="custom-control custom-radio">
+                                                                                <input type="radio" id="activa" name="estado" value="1" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="activa">Activa</label>
                                                                             </div>
-                                                                            
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                                    
-                                                                                    <div class="custom-control custom-radio">
-                                                                                        <input type="radio" id="estado" name="estado" checked="" value=2 class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="estado">Desactivada</label>
-                                                                                    </div>
-                                                                                </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-6">
+                                                                        <div class="preview-block">
+                                                                            <div class="custom-control custom-radio">
+                                                                                <input type="radio" id="desactivada" name="estado" value="2" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="desactivada">Desactivada</label>
                                                                             </div>
-                                                                        
-                                                                    </ul>
-                                                                </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </ul>
+                                                            </div>
+
                                                             </div>
 
                                                             <div class="form-group">

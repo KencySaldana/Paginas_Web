@@ -1,3 +1,21 @@
+<?php
+// En la página de dashboard.php, verificar la existencia de la variable de sesión "tipoUsuario"
+session_start();
+if(isset($_SESSION['tipoUsuario'])){
+    if($_SESSION['tipoUsuario'] != ('adminTienda' || 'superAdmin')){
+        // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a la página de inicio de sesión.
+        header('location: login.php');
+        exit();
+    }
+}else{
+    header('location: login.php');
+    exit();
+}
+
+$id_tienda = $_GET['t'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,19 +53,59 @@
                         </a> -->
                     </div>
                 </div><!-- .nk-sidebar-element -->
+                <!-- Se está creando un menú de barra lateral para una aplicación web con
+                enlaces a diferentes páginas, como tablero, categorías, inventario, usuarios, ventas
+                realizadas e historial de ventas.   -->
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                            <ul class="nk-menu">
+                        <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a categorias -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a inventarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a usuarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a realizar venta -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Realizar venta</span>
+                                    </a>
+                                </li>
+                                <!-- enlace historial de ventas -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Historial de ventas</span>
+                                    </a>
+                                </li>
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->

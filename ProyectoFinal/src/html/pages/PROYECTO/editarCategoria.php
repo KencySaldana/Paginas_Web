@@ -1,5 +1,35 @@
+<?php
+
+    include_once('dist/database/database_utilities.php');
+
+    //verificar la existencia de la variable de sesión "tipoUsuario"
+    session_start();
+    if(isset($_SESSION['tipoUsuario'])){
+        if($_SESSION['tipoUsuario'] != ('adminTienda' || 'superAdmin')){
+            // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a la página de inicio de sesión.
+            header('location: login.php');
+            exit();
+        }
+    }else{
+        header('location: login.php');
+        exit();
+    }
+
+    $id_categoria = $_GET["c"];
+    $id_tienda = $_GET["t"];
+
+    //Se verifica si los datos fueron tomados
+    if(isset($_POST['nombreCategoria'])&& isset($_POST['descripcionCategoria'])) {   
+        updateCategoria($_POST['nombreCategoria'],$_POST['descripcionCategoria'], $id_categoria);
+    }else{
+        echo 'ERROR';
+    };
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <base href="../../../">
@@ -10,7 +40,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Editar tienda</title>
+    <title>Editar Categoria</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
@@ -37,16 +67,53 @@
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                            <ul class="nk-menu">
+                        <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a categorias -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a inventarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a usuarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a realizar venta -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Realizar venta</span>
+                                    </a>
+                                </li>
+                                <!-- enlace historial de ventas -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Historial de ventas</span>
+                                    </a>
+                                </li>
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
@@ -69,41 +136,19 @@
                                                 <div class="card card-bordered h-100">
                                                     <div class="card-inner">
                                                         <div class="card-head">
-                                                            <h4 class="card-title">Editar tienda</h4>
+                                                            <h4 class="card-title">Editar categoria</h4>
                                                         </div>
-                                                        <form action="#">
+                                                        <form method="POST" action="html/pages/PROYECTO/editarCategoria.php?c=<?php echo($id_categoria);?>&t=<?php echo($id_tienda);?>">
                                                             <div class="form-group">
-                                                                <label class="form-label" for="nombreTienda">Nombre</label>
+                                                                <label class="form-label" for="nombreCategoria">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreTienda" name="nombreTienda">
+                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                
+                                                                <label class="form-label" for="descripcionCategoria">Descripción</label>
                                                                 <div class="form-control-wrap">
-                                                                    <ul class="custom-control-group g-3 align-center flex-wrap">
-                                                                        
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                
-                                                                                    <div class="custom-control custom-radio checked">
-                                                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio1">Activa</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            
-                                                                            <div class="col-md-3 col-sm-6">
-                                                                                <div class="preview-block">
-                                                                                    
-                                                                                    <div class="custom-control custom-radio">
-                                                                                        <input type="radio" id="customRadio2" name="customRadio" checked="" class="custom-control-input">
-                                                                                        <label class="custom-control-label" for="customRadio2">Desactivada</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        
-                                                                    </ul>
+                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria">
                                                                 </div>
                                                             </div>
 

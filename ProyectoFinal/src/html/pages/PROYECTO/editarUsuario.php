@@ -1,8 +1,21 @@
 <?php
 
 include_once('dist/database/database_utilities.php');
+    //verificar la existencia de la variable de sesión "tipoUsuario"
+    session_start();
+    if(isset($_SESSION['tipoUsuario'])){
+        if($_SESSION['tipoUsuario'] != ('adminTienda' || 'superAdmin')){
+            // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a la página de inicio de sesión.
+            header('location: login.php');
+            exit();
+        }
+    }else{
+        header('location: login.php');
+        exit();
+    }
 
 $user = $_GET["us"];
+$id_tienda = $_GET["t"];
 
 //Se verifica si los datos fueron tomados
 if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario'])&& isset($_POST['email'])&& isset($_POST['password'])){
@@ -54,14 +67,45 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                            <ul class="nk-menu">
+                        <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Dashboard</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Realizar venta</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Historial de ventas</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 
@@ -88,7 +132,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                         <div class="card-head">
                                                             <h4 class="card-title">Editar Usuario</h4>
                                                         </div>
-                                                        <form method="POST" action="html/pages/PROYECTO/editarUsuario.php?us=<?php echo($user);?>">
+                                                        <form method="POST" action="html/pages/PROYECTO/editarUsuario.php?us=<?php echo($user);?>&t=<?php echo($id_tienda);?>">
                                                         <div class="row g-4">
                                                             <div class="col-lg-6">
                                                                 <div class="form-group">
@@ -118,7 +162,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="email">Email</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="email" name="email">
+                                                                        <input type="email" class="form-control" id="email" name="email">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -126,7 +170,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="password">Password</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="password" name="password">
+                                                                        <input type="password" class="form-control" id="password" name="password">
                                                                     </div>
                                                                 </div>
                                                             </div>                                                          

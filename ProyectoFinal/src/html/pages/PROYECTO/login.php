@@ -1,4 +1,5 @@
 <?php
+require_once("dist/database/database_utilities.php");
 // Añadir superUsuarios
 define('SUPERADMIN', 'admin@upv.mx');
 define('PASS', 'admin');
@@ -9,23 +10,24 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
     $password = $_POST['password'];
     
     // Validar el usuario y contraseña
-    if ($username == SUPERADMIN && $password == PASS){
-        // El usuario y contraseña son válidos, redirigir al dashboard de superAdmin
+    if ($username == SUPERADMIN && $password == PASS){       
+        // El usuario y contraseña son válidos, crear variable de sesión y redirigir al dashboard de superAdmin
+        session_start();
+        $_SESSION['tipoUsuario'] = 'superAdmin';
         header('location: tablaTienda.php');
     } else {
         if (validarUsuario($username, $password)){
-            // El usuario y contraseña son válidos, redirigir al dashboard  de adminTienda
-            header('location: html/pages/PROYECTO/dashboard.php');
-        }
-        // El usuario y/o contraseña son inválidos, mostrar un modal de error
-        echo "<script>
-            function showModal() {
+            $id_tienda = obtenerIdTienda($username);
+            // El usuario y contraseña son válidos, crear variable de sesión y redirigir al dashboard de adminTienda
+            session_start();
+            $_SESSION['tipoUsuario'] = 'adminTienda';
+            header('location: dashboard.php?t='.$id_tienda);
+        }else{
+            echo "<script>       
                 $('#region').modal('show');
-            };
-            </script>";
-    };
-}else{
-    echo '';
+                </script> ";
+            };            
+        };
 };
 ?>
 
@@ -115,7 +117,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="nk-block-content text-center text-lg-start">
-                                        <p class="text-soft">&copy; 2023 Dashlite. All Rights Reserved.</p>
+                                        <p class="text-soft">&copy; Kency Marisol Saldana Martinez & Yanel Azucena Mireles Sena. All Rights Reserved.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,14 +1,29 @@
 <?php
-  require_once("dist/database/database_utilities.php");
-  if(isset($_GET["us"]) && isset($_GET["dl"])){
-    $idUsuario = $_GET["us"];
-    $delete = $_GET["dl"];
-    if ($delete){
-        deleteCategoria($idUsuario);
+    require_once("dist/database/database_utilities.php");
+    //verificar la existencia de la variable de sesión "tipoUsuario"
+    session_start();
+    if(isset($_SESSION['tipoUsuario'])){
+        if($_SESSION['tipoUsuario'] != ('adminTienda' || 'superAdmin')){
+            // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a la página de inicio de sesión.
+            header('location: login.php');
+            exit();
+        }
+    }else{
+        header('location: login.php');
+        exit();
+    }
+    
+    $id_tienda = $_GET['t'];
+
+    if(isset($_GET["c"]) && isset($_GET["dl"])){
+        $id_categoria = $_GET["c"];
+        $delete = $_GET["dl"];
+        if ($delete){
+            deleteCategoria($id_categoria);
+        };
+        deleteCategoria($id_categoria);
     };
-    deleteCategoria($idUsuario);
-  };
-  $r = mostrarCategorias();
+    $r = mostrarCategorias();
 ?> 
 
 <!DOCTYPE html>
@@ -50,14 +65,45 @@
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                            <ul class="nk-menu">
+                        <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Dashboard</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Realizar venta</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Historial de ventas</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 
@@ -135,15 +181,21 @@
                                     <div class="nk-block nk-block-lg">
                                         <div class="nk-block-head">
                                             <div class="nk-block-head-content">
-                                                <h4 class="nk-block-title">Tiendas Registradas</h4>
+                                                <h4 class="nk-block-title">Categorias Registradas</h4>
                                             </div>
                                         </div>
                                         <?php if(!$r){ ?> 
                                             <center>
-                                                <h2>NO HAY REGISTOS</h2>
+                                                <h2>NO HAY REGISTROS</h2>
+                                                <a  href="html/pages/PROYECTO/registrarCategoria.php?t=<?php echo($id_tienda);?>"><button class="btn btn-lg btn-primary btn-block">Agregar Categoria</button></a>
                                             </center>
                                         <?php }else{ ?> 
                                             <div class="card card-bordered card-preview">
+                                            <br>
+                                            <div style="width: 900px; padding-left: 700px;">
+                                                <a  href="html/pages/PROYECTO/registrarCategoria.php?t=<?php echo($id_tienda);?>"><button class="btn btn-lg btn-primary btn-block" name="btnSignIn">Agregar Categoria</button></a>
+                                            </div>
+                                            <br>
                                             <table class="table table-orders">
                                                 <thead class="tb-odr-head">
                                                     <tr class="tb-odr-item">
@@ -177,19 +229,15 @@
                                                             <span class="tb-odr-date"><?php echo $fila['date_add']; ?></span>
                                                         </span>
                                                         </td>
-                                                        <td class="tb-odr-amount"> 
-                                                        <span class="tb-odr-status">
-                                                            <span class="tb-odr-date"><?php echo $fila['id_tienda']; ?></span>
-                                                        </span>
-                                                        </td>
+                                                        
                                                         <td class="tb-odr-action">
                                                             <div class="dropdown">
                                                                 <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" data-offset="-8,0"><em class="icon ni ni-more-h"></em></a>
                                                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-xs">
                                                                     <ul class="link-list-plain">
-                                                                        <li><a href="html/pages/PROYECTO/editarUsuario.php?us=<?php echo($fila['user_id']);?>" class="text-primary">Editar</a></li> <!--href-->
+                                                                        <li><a href="html/pages/PROYECTO/editarCategoria.php?c=<?php echo($fila['id_categoria']);?>&t=<?php echo($id_tienda);?>" class="text-primary">Editar</a></li> <!--href-->
                                                                         
-                                                                        <li><a onclick="showModal(<?php echo($fila['user_id']);?>)"class="text-danger">Remover</a></li>
+                                                                        <li><a onclick="showModal(<?php echo($fila['id_categoria']);?>,<?php echo($id_tienda);?>)" class="text-danger">Remover</a></li>
                                                                         
                                                                     </ul>
                                                                 </div>
@@ -242,7 +290,7 @@
                 </div>
                 <div class="modal-body">
                         <center>
-                            <h5>¿Está seguro que desea eliminar la tienda?</h5>
+                            <h5>¿Está seguro que desea eliminar la categoria?</h5>
                         </center>
                 </div>
                 <div class="modal-footer ">
@@ -258,12 +306,12 @@
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
     <script> 
-        function showModal(id) {
+        function showModal(id, id_tienda) {
             $('#region').modal('show');
             const btnEliminar = document.querySelector('#btn');
 
             btnEliminar.addEventListener('click', (e)=>{
-                window.open("html/pages/PROYECTO/tablaTienda.php?us=" + id + "&dl=1");
+                window.open("html/pages/PROYECTO/tablaCategorias.php?c=" + id + "&dl=1"+"&t="+ id_tienda);
             });
 
         };

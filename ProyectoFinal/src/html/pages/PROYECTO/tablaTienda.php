@@ -1,14 +1,29 @@
 <?php
-  require_once("dist/database/database_utilities.php");
-  if(isset($_GET["us"]) && isset($_GET["dl"])){
-    $idUsuario = $_GET["us"];
-    $delete = $_GET["dl"];
-    if ($delete){
-        deleteTienda($idUsuario);
+    require_once("dist/database/database_utilities.php");
+    
+    //verificar la existencia de la variable de sesión "tipoUsuario"
+    session_start();
+    if(isset($_SESSION['tipoUsuario'])){
+        if($_SESSION['tipoUsuario'] != 'superAdmin'){
+            // Si el valor de la variable de sesión no coincide con los permisos necesarios, redirigir al usuario a una página de error o a la página de inicio de sesión.
+            header('location: login.php');
+            exit();
+        }
+    }else{
+        header('location: login.php');
+        exit();
+    }
+   
+    // Si el usuario tiene los permisos necesarios, mostrar el contenido de la página. 
+    if(isset($_GET["t"]) && isset($_GET["dl"])){
+        $id_tienda = $_GET["t"];
+        $delete = $_GET["dl"];
+        if ($delete){
+            deleteTienda($id_tienda);
+        };
+
     };
-    deleteTienda($idUsuario);
-  };
-  $r = mostrarTiendas();
+    $r = mostrarTiendas();
 ?> 
 
 <!DOCTYPE html>
@@ -53,13 +68,11 @@
                             <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                    <button class="btn btn-primary nk-block-title" style="margin-left: auto;">Agregar nueva tienda</button> <!-- boton AGREGAR NUEVA TIENDA-->
-                                
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
+                                    <a href="html/pages/PROYECTO/tablaTienda.php" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                        <span class="nk-menu-text">Tiendas</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 
@@ -142,7 +155,7 @@
                                         </div>
                                         <?php if(!$r){ ?> 
                                             <center>
-                                                <h2>NO HAY REGISTOS</h2>
+                                                <h2>NO HAY REGISTROS</h2>
                                                 <a  href="html/pages/PROYECTO/registrarTienda.php"><button class="btn btn-lg btn-primary btn-block" name="btnSignIn">Agregar Tienda</button></a>
                                             </center>
                                         <?php }else{ ?> 
@@ -184,13 +197,13 @@
                                                         </td>
                                                         <td class="tb-odr-action">
                                                             <div class="tb-odr-btns d-none d-md-inline">
-                                                                <a href="html/pages/PROYECTO/registrarUsuario.php?t=<?php echo($fila['id_tienda']);?>" class="btn btn-sm btn-primary">Ingresar</a> <!--href ingresar-->
+                                                                <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($fila['id_tienda']);?>" class="btn btn-sm btn-primary">Ingresar</a> <!--href ingresar-->
                                                             </div>
                                                             <div class="dropdown">
                                                                 <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown" data-offset="-8,0"><em class="icon ni ni-more-h"></em></a>
                                                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-xs">
                                                                     <ul class="link-list-plain">
-                                                                        <li><a href="html/pages/PROYECTO/editarTienda.php?us=<?php echo($fila['id_tienda']);?>" class="text-primary">Editar</a></li> <!--href-->
+                                                                        <li><a href="html/pages/PROYECTO/editarTienda.php?t=<?php echo($fila['id_tienda']);?>" class="text-primary">Editar</a></li> <!--href-->
                                                                         
                                                                         <li><a onclick="showModal(<?php echo($fila['id_tienda']);?>)"class="text-danger">Remover</a></li>
                                                                         
@@ -265,7 +278,7 @@
             const btnEliminar = document.querySelector('#btn');
 
             btnEliminar.addEventListener('click', (e)=>{
-                window.open("html/pages/PROYECTO/tablaTienda.php?us=" + id + "&dl=1");
+                window.open("html/pages/PROYECTO/tablaTienda.php?t=" + id + "&dl=1");
             });
 
         };

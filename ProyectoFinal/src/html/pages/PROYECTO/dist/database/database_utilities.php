@@ -64,20 +64,34 @@
 		$statement->execute();
 	}
 
-	// Consulta SQL para buscar al usuario en la base de datos
-	function verificarUsuario($username, $email) {
+	// Función para obtener el ID de la tienda del usuario
+	function obtenerIdTienda($usuario) {
 		global $pdo;
-		$sql = "SELECT * FROM usuarios WHERE nombre_usuario = :username OR correo_electronico = :email";
+
+		// Buscamos el usuario por nombre de usuario o email
+		$sql = "SELECT id_tienda FROM users WHERE user_name = :usuario OR email = :usuario";
 		$statement = $pdo->prepare($sql);
-		$statement->execute(['username' => $username, 'email' => $email]);
-		$user = $statement->fetch(PDO::FETCH_ASSOC);
+		$statement->bindParam(':usuario', $usuario);
+		$statement->execute();
+		$usuario_bd = $statement->fetch(PDO::FETCH_ASSOC);
+
+		// Si el usuario no existe, retornamos null
+		if (!$usuario_bd) {
+			return null;
+		}
+
+		// Si el usuario existe, retornamos el ID de la tienda
+		return $usuario_bd['id_tienda'];
 	}
 
+	// Consulta SQL para buscar al usuario en la base de datos
 	function validarUsuario($usuario, $contrasena) {
 		global $pdo;
 	
 		// Buscamos el usuario por nombre de usuario o email
-		$sql = "SELECT * FROM users WHERE user_name = :usuario OR email = :usuario";
+		$sql = "SELECT users.*, tienda.activa AS estado_tienda FROM users 
+				INNER JOIN tienda ON users.id_tienda = tienda.id_tienda
+				WHERE (user_name = :usuario OR email = :usuario) AND tienda.activa = 1";
 		$statement = $pdo->prepare($sql);
 		$statement->bindParam(':usuario', $usuario);
 		$statement->execute();
@@ -88,15 +102,15 @@
 			return false;
 		}
 	
-		// Si el usuario existe, comparamos la contraseña
-		if (password_verify($contrasena, $usuario_bd['user_password_hash'])) {
+		// Si el usuario existe, comparamos la contraseña y el estado de la tienda
+		if ($contrasena == $usuario_bd['user_password_hash'] && $usuario_bd['estado_tienda'] == 1) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 	
-
+	
 	//Funcion que permite agregar un registro en la tabla categorias
 	function addCategoria($name, $descripcionCategoria, $id_tienda){
 		global $pdo;
