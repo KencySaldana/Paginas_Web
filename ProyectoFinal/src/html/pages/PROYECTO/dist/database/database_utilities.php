@@ -148,11 +148,11 @@
 
 
 	//Funcion que trae las categorias activas
-	function Mostrarcategorias(){
+	function Mostrarcategorias($id_tienda){
 		global $pdo;
-		$sql = "SELECT * FROM categorias";
+		$sql = "SELECT * FROM categorias WHERE id_tienda = :id_tienda";
 		$statement = $pdo->prepare($sql);
-		$statement->execute();
+		$statement->execute(['id_tienda' => $id_tienda]);
 		$results=$statement->fetchAll();
 		return $results;
 	}
@@ -169,14 +169,15 @@
 	}
 
 	//Funcion que trae las categorias activas
-	function mostrarUsuarios(){
+	function mostrarUsuarios($id_tienda){
 		global $pdo;
-		$sql = "SELECT * FROM users";
+		$sql = "SELECT * FROM users WHERE id_tienda = :id_tienda";
 		$statement = $pdo->prepare($sql);
-		$statement->execute();
+		$statement->execute(['id_tienda' => $id_tienda]);
 		$results=$statement->fetchAll();
 		return $results;
 	}
+
 
 
 	//Funcion para mostrar la tablas con productos y su categoria
