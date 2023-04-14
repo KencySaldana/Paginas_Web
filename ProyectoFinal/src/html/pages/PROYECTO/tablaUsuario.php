@@ -24,7 +24,7 @@
         };
         deleteUsuario($idUsuario);
     };
-    $r = mostrarUsuarios($id_tienda);
+    $r = mostrarUsuarios();
 ?> 
 
 <!DOCTYPE html>

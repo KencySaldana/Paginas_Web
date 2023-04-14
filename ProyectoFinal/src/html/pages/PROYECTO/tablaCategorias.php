@@ -23,7 +23,7 @@
         };
         deleteCategoria($id_categoria);
     };
-    $r = mostrarCategorias($id_tienda);
+    $r = mostrarCategorias();
 ?> 
 
 <!DOCTYPE html>
