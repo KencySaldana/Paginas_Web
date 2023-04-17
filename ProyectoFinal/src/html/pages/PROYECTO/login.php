@@ -3,6 +3,7 @@ require_once("dist/database/database_utilities.php");
 // Añadir superUsuarios
 define('SUPERADMIN', 'admin@upv.mx');
 define('PASS', 'admin');
+define('NAME', 'Kency Saldaña');
 
 // Recuperar las credenciales ingresadas por el usuario
 if(isset($_POST['password']) && isset($_POST['correo'])){
@@ -14,6 +15,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
         // El usuario y contraseña son válidos, crear variable de sesión y redirigir al dashboard de superAdmin
         session_start();
         $_SESSION['tipoUsuario'] = 'superAdmin';
+        $_SESSION['usuario'] = NAME;
         header('location: tablaTienda.php');
     } else {
         if (validarUsuario($username, $password)){
@@ -21,6 +23,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
             // El usuario y contraseña son válidos, crear variable de sesión y redirigir al dashboard de adminTienda
             session_start();
             $_SESSION['tipoUsuario'] = 'adminTienda';
+            $_SESSION['usuario'] = $username;
             header('location: dashboard.php?t='.$id_tienda);
         }else{
             echo "<script>       
