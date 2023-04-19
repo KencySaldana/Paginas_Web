@@ -131,13 +131,13 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreCategoria">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" placeholder="<?php echo $categoria['nombre_categoria'];?>" aria-required="true">
+                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" value="<?php echo $categoria['nombre_categoria'];?>" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="descripcionCategoria">Descripción</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria" placeholder="<?php echo $categoria['descripcion_categoria'];?>" aria-required="true">
+                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria" value="<?php echo $categoria['descripcion_categoria'];?>" aria-required="true">
                                                                 </div>
                                                             </div>
 
@@ -157,19 +157,7 @@
                     </div>
                 </div>
                 <!-- content @e -->
-                <!-- footer @s -->
-                <div class="nk-footer">
-                    <div class="container-fluid">
-                        <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright"> &copy; 2023 DashLite. Template by <a href="https://softnio.com" target="_blank">Softnio</a>
-                            </div>
-                            <div class="nk-footer-links">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- footer @e -->
+                
             </div>
             <!-- wrap @e -->
         </div>

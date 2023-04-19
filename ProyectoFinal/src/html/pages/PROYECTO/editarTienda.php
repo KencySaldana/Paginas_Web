@@ -109,7 +109,7 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreTienda">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" aria-required="true" id="nombreTienda" name="nombreTienda" placeholder="<?php echo $r['nombre'] ?>">
+                                                                    <input type="text" class="form-control" aria-required="true" id="nombreTienda" name="nombreTienda" value="<?php echo $r['nombre'] ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">

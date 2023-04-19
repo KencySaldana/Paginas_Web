@@ -26,10 +26,7 @@ if(isset($_POST['password']) && isset($_POST['correo'])){
             $_SESSION['usuario'] = $username;
             header('location: dashboard.php?t='.$id_tienda);
         }else{
-            echo "<script>       
-                $('#region').modal('show');
-                </script> ";
-            };            
+            echo "<script>Swal.fire('Error', 'Datos inválidos.', 'error');</script>";    
         };
 };
 ?>

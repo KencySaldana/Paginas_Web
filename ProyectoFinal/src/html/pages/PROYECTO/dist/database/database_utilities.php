@@ -1,6 +1,6 @@
 <?php
 	include('connection.php');
-
+	
 	//Funcion que permite agregar una tienda
 	//   La función agrega una nueva tienda a una tabla de base de datos con información específica.
 	function addTienda($nombreTienda, $estado){
@@ -68,13 +68,35 @@
 	//   el parametro id_tienda Es el ID de la tienda o comercio al que pertenece el usuario. Se utiliza para
 	//   asociar al usuario con una tienda específica en la base de datos.
 	//  
-	function addUsuario($nombre, $apellido, $user_name, $user_password_hash, $email, $id_tienda){
+	function addUsuario($nombre, $apellido, $user_name, $user_password_hash, $email, $id_tienda) {
 		global $pdo;
-
-		$sql = "INSERT INTO users (nombre, apellido, user_name, user_password_hash, email, date_add, id_tienda) VALUES ('$nombre', '$apellido', '$user_name', '$user_password_hash', '$email', NOW(), '$id_tienda')";
+	
+		// Verificar si el correo electrónico o el nombre de usuario ya existen en la base de datos
+		$sql = "SELECT COUNT(*) FROM users WHERE user_name = :user_name OR email = :email";
 		$statement = $pdo->prepare($sql);
+		$statement->bindParam(':user_name', $user_name);
+		$statement->bindParam(':email', $email);
 		$statement->execute();
+		$count = $statement->fetchColumn();
+	
+		if ($count > 0) {
+			// Si ya existe un usuario con el mismo correo electrónico o nombre de usuario, mostrar un mensaje de error en un SweetAlert
+			echo "<script>Swal.fire('Error', 'El correo electrónico o el nombre de usuario ya existen.', 'error');</script>";
+		} else {
+			// Si no hay coincidencias, insertar el nuevo usuario en la base de datos
+			$sql = "INSERT INTO users (nombre, apellido, user_name, user_password_hash, email, date_add, id_tienda) VALUES (:nombre, :apellido, :user_name, :user_password_hash, :email, NOW(), :id_tienda)";
+			$statement = $pdo->prepare($sql);
+			$statement->bindParam(':nombre', $nombre);
+			$statement->bindParam(':apellido', $apellido);
+			$statement->bindParam(':user_name', $user_name);
+			$statement->bindParam(':user_password_hash', $user_password_hash);
+			$statement->bindParam(':email', $email);
+			$statement->bindParam(':id_tienda', $id_tienda);
+			$statement->execute();
+		}
 	}
+	
+	
 
 
 	
@@ -540,7 +562,7 @@
 		$statement = $pdo->prepare($sql);
 		$statement->execute(['cantidad' => $cantidad, 'id_producto' => $id_producto]);
 		} else {
-		return false;
+			echo "<script>Swal.fire('Error', 'No hay suficiente stock.', 'error');</script>";
 		}
 		}
 	
@@ -913,9 +935,6 @@
 
 		return $resultado['nombre'];
 	}
-
-		
-
 	  
 	  
 ?>

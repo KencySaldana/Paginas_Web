@@ -135,19 +135,19 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="codigoProducto">Código producto</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" placeholder="<?php echo $producto['codigo_producto'];?>" aria-required="true">
+                                                                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<?php echo $producto['codigo_producto'];?>" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreProducto">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="<?php echo $producto['nombre_producto'];?>" aria-required="true">
+                                                                    <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" value="<?php echo $producto['nombre_producto'];?>" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="precioProducto">Precio</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="precioProducto" name="precioProducto" placeholder="<?php echo '$'. $producto['precio_producto'];?>" aria-required="true">
+                                                                    <input type="text" class="form-control" id="precioProducto" name="precioProducto" value="<?php echo '$'. $producto['precio_producto'];?>" aria-required="true">
                                                                 </div>
                                                             </div>              
                                                             <div class="form-group">
@@ -177,19 +177,7 @@
                     </div>
                 </div>
                 <!-- content @e -->
-                <!-- footer @s -->
-                <div class="nk-footer">
-                    <div class="container-fluid">
-                        <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright"> &copy; 2023 DashLite. Template by <a href="https://softnio.com" target="_blank">Softnio</a>
-                            </div>
-                            <div class="nk-footer-links">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- footer @e -->
+                
             </div>
             <!-- wrap @e -->
         </div>

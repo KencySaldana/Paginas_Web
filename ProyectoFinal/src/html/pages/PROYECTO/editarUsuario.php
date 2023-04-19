@@ -132,7 +132,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="nombre">Nombre</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id = "nombre" name="nombre" placeholder="<?php echo $usuario['nombre'];?>" aria-required="true">
+                                                                        <input type="text" class="form-control" id = "nombre" name="nombre" value="<?php echo $usuario['nombre'];?>" aria-required="true">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -140,7 +140,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="apellido">Apellido</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="<?php echo $usuario['apellido'];?>" aria-required="true">
+                                                                        <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $usuario['apellido'];?>" aria-required="true">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -148,7 +148,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="phone-no-1">Usuario</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="<?php echo $usuario['user_name'];?>" aria-required="true">
+                                                                        <input type="text" class="form-control" id="usuario" name="usuario" value="<?php echo $usuario['user_name'];?>" aria-required="true">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -156,7 +156,7 @@ if(isset($_POST['nombre'])&& isset($_POST['apellido'])&& isset($_POST['usuario']
                                                                 <div class="form-group">
                                                                     <label class="form-label" for="email">Email</label>
                                                                     <div class="form-control-wrap">
-                                                                        <input type="email" class="form-control" id="email" name="email" placeholder="<?php echo $usuario['email'];?>" aria-required="true">
+                                                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $usuario['email'];?>" aria-required="true">
                                                                     </div>
                                                                 </div>
                                                             </div>
