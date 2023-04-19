@@ -96,21 +96,7 @@
                                         <span class="nk-menu-text">Usuarios</span>
                                     </a>
                                 </li>
-                                <!-- enlace a realizar venta -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Realizar venta</span>
-                                    </a>
-                                </li>
-                                <!-- enlace historial de ventas -->
-
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Historial de ventas</span>
-                                    </a>
-                                </li>
+                                
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->

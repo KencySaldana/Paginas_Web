@@ -184,7 +184,7 @@
         e.preventDefault();
         // Check if all required fields are completed
         var valid = true;
-        $(this).find('[required],[aria-required="true"]').each(function () {
+        $(this).find('[required],[aria-required="true"]').each(function ( ) {
             if ($(this).val() === '') {
             valid = false;
             return false;

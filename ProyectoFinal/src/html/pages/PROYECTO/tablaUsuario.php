@@ -81,9 +81,10 @@
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
                         <!-- Menu -->
+                        <!-- Menu -->
                         <ul class="nk-menu">
                                 <li class="nk-menu-heading">
-                                    <h6 class="overline-title text-primary-alt">MENU</h6>
+                                    <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li>
                                 <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
@@ -99,6 +100,21 @@
                                         <span class="nk-menu-text">Categorías</span>
                                     </a>
                                 </li>
+                                <!-- enlace a inventarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a usuarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li>
+                                
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
