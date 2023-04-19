@@ -93,11 +93,12 @@
     });
     e.preventDefault();
   });
-  $('.eg-swal-av5').on("click", function (e) {
+  function eliminar() {
+   
     var timerInterval;
     Swal.fire({
-      title: 'Auto close alert!',
-      html: 'I will close in <b></b> milliseconds.',
+      title: '¡Elimnación éxitosa!',
+      html: 'La eliminación se realizará en <b></b> millisegundos.',
       timer: 2000,
       timerProgressBar: true,
       onBeforeOpen: function onBeforeOpen() {
@@ -116,8 +117,8 @@
       }
     });
 
-    e.preventDefault();
-  });
+    
+  };
   $('.eg-swal-av6').on("click", function (e) {
     Swal.fire({
       title: 'Submit your Github username',

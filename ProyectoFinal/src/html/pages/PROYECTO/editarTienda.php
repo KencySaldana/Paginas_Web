@@ -17,9 +17,11 @@ if(isset($_SESSION['tipoUsuario'])){
 
 $id_tienda = $_GET["t"];
 
+$r= obtenerTienda($id_tienda);
+
 //Se verifica si los datos fueron tomados
 if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) { 
-   
+    
     updateTienda($_POST['nombreTienda'],$_POST['estado'], $id_tienda);
     
 
@@ -71,7 +73,7 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                         <div class="nk-sidebar-menu" data-simplebar>
                             <ul class="nk-menu">
                                 <li class="nk-menu-heading">
-                                    <h6 class="overline-title text-primary-alt">Usuario</h6>
+                                    <h6 class="overline-title text-primary-alt">ADMINISTRADOR ROOT</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaTienda.php" class="nk-menu-link">
@@ -107,7 +109,7 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreTienda">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreTienda" name="nombreTienda">
+                                                                    <input type="text" class="form-control" aria-required="true" id="nombreTienda" name="nombreTienda" placeholder="<?php echo $r['nombre'] ?>">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -174,6 +176,52 @@ if(isset($_POST['nombreTienda'])&& isset($_POST['estado'])) {
     <!-- JavaScript -->
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script>
+        $('form').on('submit', function (e) {
+        // Prevent form submission
+        e.preventDefault();
+        // Check if all required fields are completed
+        var valid = true;
+        $(this).find('[required],[aria-required="true"]').each(function () {
+            if ($(this).val() === '') {
+                valid = false;
+                return false;
+            }
+        });
+        // Check if at least one radio button is selected
+        var radioButtons = $(this).find('input[type="radio"]');
+        if (radioButtons.length > 0) {
+            var radioChecked = false;
+            radioButtons.each(function() {
+                if ($(this).prop('checked')) {
+                    radioChecked = true;
+                    return false;
+                }
+            });
+            if (!radioChecked) {
+                valid = false;
+            }
+        }
+        // If all required fields are completed and at least one radio button is selected, show SweetAlert
+        if (valid) {
+            Swal.fire({
+                title: "¡REGISTRO EXITOSO!",
+                text: "Datos agregados a la base de datos",
+                icon: "success",
+                timer: 3000, // Time in milliseconds before automatically close the SweetAlert
+                showConfirmButton: false // Hide the "OK" button
+            });
+            // Wait 3 seconds before submitting the form
+            setTimeout(() => {
+                this.submit();
+            }, 3000);
+        } else {
+            // Show error modal if not all required fields are completed or no radio button is selected
+            Swal.fire("¡ERROR!", "Por favor ingresa datos válidos", "error");
+        }
+    });
+
+    </script>
 </body>
 
 </html>

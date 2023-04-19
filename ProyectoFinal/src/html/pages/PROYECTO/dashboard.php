@@ -1,4 +1,6 @@
 <?php
+
+include_once('dist/database/database_utilities.php');
 // En la página de dashboard.php, verificar la existencia de la variable de sesión "tipoUsuario"
 session_start();
 if(isset($_SESSION['tipoUsuario'])){
@@ -14,6 +16,12 @@ if(isset($_SESSION['tipoUsuario'])){
 
 $id_tienda = $_GET['t'];
 
+$cantC = cantCategorias($id_tienda);
+$cantP = cantProductos($id_tienda);
+$cantU = cantUsuarios($id_tienda);
+$cantCambios = cantCambios($id_tienda);
+$user = $_SESSION['usuario'];
+$nombreTienda = obtenerNombreTienda($id_tienda);
 ?>
 
 <!DOCTYPE html>
@@ -59,21 +67,22 @@ $id_tienda = $_GET['t'];
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
-                        <ul class="nk-menu">
+                            <!-- Menu -->
+                            <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
                                 </li>
                                 <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
                                 </li>
                                 <!-- enlace a categorias -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-grid-alt"></em></span>
                                         <span class="nk-menu-text">Categorías</span>
                                     </a>
                                 </li>
@@ -89,21 +98,6 @@ $id_tienda = $_GET['t'];
                                     <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
                                         <span class="nk-menu-text">Usuarios</span>
-                                    </a>
-                                </li>
-                                <!-- enlace a realizar venta -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Realizar venta</span>
-                                    </a>
-                                </li>
-                                <!-- enlace historial de ventas -->
-
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Historial de ventas</span>
                                     </a>
                                 </li>
                                 
@@ -140,8 +134,8 @@ $id_tienda = $_GET['t'];
                                                     <em class="icon ni ni-user-alt"></em> <!--icono-->
                                                 </div>
                                                 <div class="user-info d-none d-md-block">
-                                                    <div class="user-status">Tipo de usuario</div>  <!--TIPO DE USUARIO-->
-                                                    <div class="user-name dropdown-indicator">Nombre de usuario</div> <!--NOMBRE DE USUARIO-->
+                                                    <div class="user-status">Admin</div>  <!--TIPO DE USUARIO-->
+                                                    <div class="user-name dropdown-indicator"><?php echo($nombreTienda)?></div> <!--NOMBRE DE USUARIO-->
                                                 </div>
                                             </div>
                                         </a>
@@ -152,15 +146,16 @@ $id_tienda = $_GET['t'];
                                                         <em class="icon ni ni-user-alt"></em> <!--icono-->
                                                     </div>
                                                     <div class="user-info">
-                                                        <span class="lead-text">Nombre de usuario</span> <!--NOMBRE DE USUARIO-->
-                                                        <span class="sub-text">correo</span> <!--CORREO-->
+                                                        <span class="lead-text"><?php echo($user)?></span> <!--NOMBRE DE USUARIO-->
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    <li><a href="html/pages/PROYECTO/login.php"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -201,7 +196,7 @@ $id_tienda = $_GET['t'];
                                                         </div>
                                                     </div>
                                                     <div class="card-amount">
-                                                        <span class="amount"> 0 </span> <!--TOTAL DE PRODUCTOS-->
+                                                        <span class="amount"> <?php echo($cantP);?> </span> <!--TOTAL DE PRODUCTOS-->
                                                         
                                                     </div>
                                                     <div class="preview-icon card">
@@ -244,7 +239,7 @@ $id_tienda = $_GET['t'];
                                                         </div>
                                                     </div>
                                                     <div class="card-amount">
-                                                        <span class="amount"> 0 </span> <!--TOTAL DE USUARIOS-->
+                                                        <span class="amount"> <?php echo($cantU);?> </span> <!--TOTAL DE USUARIOS-->
                                                         
                                                     </div>
                                                     <div class="preview-icon card">
@@ -287,7 +282,7 @@ $id_tienda = $_GET['t'];
                                                         </div>
                                                     </div>
                                                     <div class="card-amount">
-                                                        <span class="amount"> 0 </span> <!--TOTAL DE CATEGORIAS-->
+                                                        <span class="amount"> <?php echo($cantC);?> </span> <!--TOTAL DE CATEGORIAS-->
                                                         
                                                     </div>
                                                     <div class="preview-icon card">
@@ -326,7 +321,7 @@ $id_tienda = $_GET['t'];
                                                         </div>
                                                     </div>
                                                     <div class="card-amount">
-                                                        <span class="amount"> 0 </span> <!--TOTAL DE CAMBIOS REALIZADOS-->
+                                                        <span class="amount"><?php echo($cantCambios);?> </span> <!--TOTAL DE CAMBIOS REALIZADOS-->
                                                         
                                                     </div>
                                                     <div class="preview-icon card">

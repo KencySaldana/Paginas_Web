@@ -19,7 +19,7 @@
     }
     //Se verifica si los datos fueron tomados
     if(isset($_POST['nombreCategoria'])&& isset($_POST['descripcionCategoria'])) {  
-        
+        addCambio($id_tienda);
         addCategoria($_POST['nombreCategoria'],$_POST['descripcionCategoria'], $id_tienda);
         //header("location: registro_productos.php");
     }else{
@@ -66,47 +66,40 @@
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
+                        <!-- Menu -->
                         <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a categorias -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-grid-alt"></em></span>
                                         <span class="nk-menu-text">Categorías</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a inventarios -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
                                         <span class="nk-menu-text">Inventario</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a usuarios -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
                                         <span class="nk-menu-text">Usuarios</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Realizar venta</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
-
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Historial de ventas</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
@@ -135,13 +128,13 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreCategoria">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria">
+                                                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="descripcionCategoria">Descripción</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria">
+                                                                    <input type="text" class="form-control" id="descripcionCategoria" name="descripcionCategoria" aria-required="true">
                                                                 </div>
                                                             </div>
 
@@ -184,6 +177,39 @@
     <!-- JavaScript -->
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script src="./assets/js/example-sweetalert.js?ver=3.1.3"></script>
+    <script>
+        $('form').on('submit', function (e) {
+        // Prevent form submission
+        e.preventDefault();
+        // Check if all required fields are completed
+        var valid = true;
+        $(this).find('[required],[aria-required="true"]').each(function () {
+            if ($(this).val() === '') {
+            valid = false;
+            return false;
+            }
+        });
+        // If all required fields are completed and at least one radio button is selected, submit the form
+        if (valid) {
+            Swal.fire({
+            title: "¡REGISTRO EXITOSO!",
+            text: "Datos agregados a la base de datos",
+            icon: "success",
+            timer: 3000, // Time in milliseconds before automatically close the SweetAlert
+            showConfirmButton: false // Hide the "OK" button
+        });
+        // Wait 3 seconds before submitting the form
+        setTimeout(() => {
+            this.submit();
+        }, 3000);
+        } else {
+            // Show error modal if not all required fields are completed or no radio button is selected
+            Swal.fire('¡ERROR!', 'Por favor ingresa datos válidos', 'error');
+        }
+        });
+
+    </script>
 </body>
 
 </html>

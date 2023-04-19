@@ -17,12 +17,13 @@
     $id_tienda = $_GET['t'];
     //Se verifica si los datos fueron tomados
     if(isset($_POST['codigoProducto'])&& isset($_POST['nombreProducto'])&& isset($_POST['precioProducto'])&& isset($_POST['stockProducto'])){
+        addCambio($id_tienda);
         addProducto($_POST['codigoProducto'],$_POST['nombreProducto'],$_POST['precioProducto'],$_POST['stockProducto'],$_POST['categoriaProducto'],$id_tienda);
         
     }else{
         echo 'ERROR';
     };
-
+    $cantCategoria = cantCategorias($id_tienda);
     $result = obtenerCategoriasActivas($id_tienda);
 ?>
 
@@ -64,17 +65,39 @@
                 </div><!-- .nk-sidebar-element -->
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
-                        <div class="nk-sidebar-menu" data-simplebar>
+                    <div class="nk-sidebar-menu" data-simplebar>
                             <ul class="nk-menu">
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Usuario</h6>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
-                                    <a href="html/crm/index.html" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">CRM Panel</span>
+                                    <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                        <span class="nk-menu-text">Dashboard</span>
                                     </a>
-                                </li><!-- .nk-menu-item -->
+                                </li>
+                                <!-- enlace a categorias -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-grid-alt"></em></span>
+                                        <span class="nk-menu-text">Categorías</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a inventarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Inventario</span>
+                                    </a>
+                                </li>
+                                <!-- enlace a usuarios -->
+                                <li class="nk-menu-item">
+                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-text">Usuarios</span>
+                                    </a>
+                                </li>
                                 
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
@@ -103,25 +126,25 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="codigoProducto">Código producto</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto">
+                                                                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="nombreProducto">Nombre</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="nombreProducto" name="nombreProducto">
+                                                                    <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="precioProducto">Precio</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="precioProducto" name="precioProducto">
+                                                                    <input type="text" class="form-control" id="precioProducto" name="precioProducto" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="form-label" for="stockProducto">Stock</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="stockProducto" name="stockProducto">
+                                                                    <input type="number" class="form-control" id="stockProducto" name="stockProducto" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -174,6 +197,39 @@
     <!-- JavaScript -->
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script src="./assets/js/example-sweetalert.js?ver=3.1.3"></script>
+    <script>
+        $('form').on('submit', function (e) {
+        // Prevent form submission
+        e.preventDefault();
+        // Check if all required fields are completed
+        var valid = true;
+        $(this).find('[required],[aria-required="true"]').each(function () {
+            if ($(this).val() === '') {
+            valid = false;
+            return false;
+            }
+        });
+        // If all required fields are completed and at least one radio button is selected, submit the form
+        if (valid) {
+            Swal.fire({
+            title: "¡REGISTRO EXITOSO!",
+            text: "Datos agregados a la base de datos",
+            icon: "success",
+            timer: 3000, // Time in milliseconds before automatically close the SweetAlert
+            showConfirmButton: false // Hide the "OK" button
+        });
+        // Wait 3 seconds before submitting the form
+        setTimeout(() => {
+            this.submit();
+        }, 3000);
+        } else {
+            // Show error modal if not all required fields are completed or no radio button is selected
+            Swal.fire('¡ERROR!', 'Por favor ingresa datos válidos', 'error');
+        }
+        });
+
+    </script>
 </body>
 
 </html>

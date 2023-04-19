@@ -21,16 +21,32 @@
 		$statement->execute();
 	}
 	
-
-	//Funcion que permite eliminar una tienda
+	//Funcion que elimina la tienda
 	function deleteTienda($id_tienda){
 		global $pdo;
 
+		//Eliminamos el historial asociados a la tienda
+		$sql = "DELETE FROM historial WHERE id_tienda = $id_tienda";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		//Eliminamos los usuarios asociados a la tienda
+		$sql = "DELETE FROM users WHERE id_tienda = $id_tienda";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		//Eliminamos los productos de la tienda
+		$sql = "DELETE FROM productos WHERE id_tienda = $id_tienda";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		//Eliminamos las categorias de la tienda
+		$sql = "DELETE FROM categorias WHERE id_tienda = $id_tienda";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		// Luego eliminamos la tienda
 		$sql = "DELETE FROM tienda WHERE id_tienda = $id_tienda";
 		$statement = $pdo->prepare($sql);
-
 		$statement->execute();
 	}
+	
 
 	//Funcion que permite agregar una usuario de la tienda
 	function addUsuario($nombre, $apellido, $user_name, $user_password_hash, $email, $id_tienda){
@@ -57,6 +73,11 @@
 	//Funcion que permite eliminar una tienda
 	function deleteUsuario($user_id){
 		global $pdo;
+
+		$sql = "DELETE FROM historial WHERE user_id = $user_id";
+		$statement = $pdo->prepare($sql);
+
+		$statement->execute();
 
 		$sql = "DELETE FROM users WHERE user_id = $user_id";
 		$statement = $pdo->prepare($sql);
@@ -129,14 +150,19 @@
 
 	
 
-	//Funcion que permite eliminar una tienda
 	function deleteCategoria($id_categoria){
 		global $pdo;
+
+		//Eliminamos los productos asociados a la categoría
+		$sql = "DELETE FROM productos WHERE id_categoria = $id_categoria";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		// Luego eliminamos la categoría
 		$sql = "DELETE FROM categorias WHERE id_categoria = $id_categoria";
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
 	}
-
+	
 	//Funcion que permite agregar un registro en la tabla categorias
 	function addProducto($codigo_producto, $nombre_producto, $precio_producto, $stock, $id_categoria, $id_tienda){
 		global $pdo;
@@ -157,6 +183,12 @@
 	//Funcion que permite eliminar una tienda
 	function deleteProducto($id_producto){
 		global $pdo;
+
+		
+		$sql = "DELETE FROM historial WHERE id_producto = $id_producto";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+
 		$sql = "DELETE FROM productos WHERE id_producto = $id_producto";
 		$statement = $pdo->prepare($sql);
 		$statement->execute();
@@ -369,6 +401,164 @@
 		// Retornar el array de categorías
 		return $resultados;
 	}
+
+
+	function obtenerProducto($id_producto) {
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT * FROM productos WHERE id_producto = :id");	
+		// Asignar el valor del parámetro
+		$stmt->bindValue(':id', $id_producto);	
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$producto = $stmt->fetch(PDO::FETCH_ASSOC);	
+		// Retornar el producto encontrado
+		return $producto;
+	}
+
+
+	function obtenerTienda($id_tienda) {
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT * FROM tienda WHERE id_tienda = :id");	
+		// Asignar el valor del parámetro
+		$stmt->bindValue(':id', $id_tienda);	
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$producto = $stmt->fetch(PDO::FETCH_ASSOC);	
+		// Retornar el producto encontrado
+		return $producto;
+	}
+	
+
+	function obtenerUsuario($id_usuario) {
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :id");	
+		// Asignar el valor del parámetro
+		$stmt->bindValue(':id', $id_usuario);	
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$usuario = $stmt->fetch(PDO::FETCH_ASSOC);	
+		// Retornar el producto encontrado
+		return $usuario;
+	}
+
+
+	function obtenerCategoria($id_categoria) {
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT * FROM categorias WHERE id_categoria= :id");	
+		// Asignar el valor del parámetro
+		$stmt->bindValue(':id', $id_categoria);	
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$categoria = $stmt->fetch(PDO::FETCH_ASSOC);	
+		// Retornar el producto encontrado
+		return $categoria;
+	}
+
+
+	function cantProductos($id_tienda){
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT COUNT(*) FROM productos WHERE id_tienda = $id_tienda");		
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$cantP = $stmt->fetchColumn();;	
+		return $cantP;
+	}
+
+
+	function cantCategorias($id_tienda){
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT COUNT(*) FROM categorias WHERE id_tienda = $id_tienda");		
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$cantC = $stmt->fetchColumn();;	
+		return $cantC;
+	}
+
+	function cantUsuarios($id_tienda){
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE id_tienda = $id_tienda");		
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$cantU = $stmt->fetchColumn();;	
+		return $cantU;
+	}
+
+
+
+	function cantCambios($id_tienda){
+		global $pdo;
+		// Preparar la consulta SQL
+		$stmt = $pdo->prepare("SELECT cambios FROM tienda WHERE id_tienda = $id_tienda");		
+		// Ejecutar la consulta
+		$stmt->execute();	
+		// Obtener el resultado
+		$cantCambios = $stmt->fetchColumn();;	
+		return $cantCambios;
+	}
+
+	//Funcion que permite agregar un registro en la tabla categorias
+	function addCambio($id_tienda){
+		global $pdo;
+		$sql = $sql = "UPDATE tienda SET cambios = cambios + 1 WHERE id_tienda = $id_tienda";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+	}
+
+	function obtenerPassword($correo_o_usuario){
+		global $pdo;
+		// Preparación de la consulta SQL
+		$sql = "SELECT user_password_hash FROM users WHERE email = :correo OR user_name = :usuario";
+		$stmt = $pdo->prepare($sql);
+
+		// Asignación de valores a los parámetros
+		$stmt->bindParam(':correo', $correo_o_usuario);
+		$stmt->bindParam(':usuario', $correo_o_usuario);
+
+		// Ejecución de la consulta
+		$stmt->execute();
+
+		// Obtención del resultado
+		$resultado = $stmt->fetch();
+
+		if ($resultado) {
+		return $resultado['user_password_hash'];
+		} else {
+		return false;
+		}
+
+
+	}
+
+	function obtenerNombreTienda($id_tienda){
+		global $pdo;
+		// Preparación de la consulta SQL
+		$sql = "SELECT nombre FROM tienda WHERE id_tienda = $id_tienda";
+		$stmt = $pdo->prepare($sql);
+
+		$stmt->execute();
+
+		// Obtención del resultado
+		$resultado = $stmt->fetch();
+
+		return $resultado['nombre'];
+	}
+
+		
+
 	  
 	  
 ?>

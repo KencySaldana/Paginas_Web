@@ -24,6 +24,11 @@
 
     };
     $r = mostrarTiendas();
+
+    $user = $_SESSION['usuario'];
+
+    $password = 'admin';
+
 ?> 
 
 <!DOCTYPE html>
@@ -67,7 +72,7 @@
                         <div class="nk-sidebar-menu" data-simplebar>
                             <ul class="nk-menu">
                                 <li class="nk-menu-heading">
-                                    <h6 class="overline-title text-primary-alt">Usuario</h6>
+                                    <h6 class="overline-title text-primary-alt">ADMINISTRADOR ROOT</h6>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaTienda.php" class="nk-menu-link">
@@ -110,7 +115,7 @@
                                                 <div class="user-info d-none d-md-block">
                                                    
                                                     <div class="user-status">SuperAdmin</div>  <!--TIPO DE USUARIO-->
-                                                    <div class="user-name dropdown-indicator">Nombre de usuario</div> <!--NOMBRE DE USUARIO-->
+                                                    <div class="user-name dropdown-indicator">Kency Saldaña</div> <!--NOMBRE DE USUARIO-->
                                                 </div>
                                             </div>
                                         </a>
@@ -121,15 +126,16 @@
                                                         <em class="icon ni ni-user-alt"></em> <!--icono-->
                                                     </div>
                                                     <div class="user-info">
-                                                        <span class="lead-text">Nombre de usuario</span> <!--NOMBRE DE USUARIO-->
-                                                        <span class="sub-text">correo</span> <!--CORREO-->
+                                                        <span class="lead-text">KencySaldana</span> <!--NOMBRE DE USUARIO-->
+                                                        <span class="sub-text">Kencysaldana@gmail.com</span> <!--CORREO-->
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    <li><a href="html/pages/PROYECTO/login.php"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -258,6 +264,10 @@
                 <div class="modal-body">
                         <center>
                             <h5>¿Está seguro que desea eliminar la tienda?</h5>
+                            <br>
+                            <label class="form-label" >Ingresa contraseña para validar:</label>
+                            <input type="password" class="form-control" id ="pass" name="pass" style="width: 200px;">
+                            <label class="form-label" id = "advertencia" style="color: red;"></label>
                         </center>
                 </div>
                 <div class="modal-footer ">
@@ -278,8 +288,16 @@
             const btnEliminar = document.querySelector('#btn');
 
             btnEliminar.addEventListener('click', (e)=>{
-                window.open("html/pages/PROYECTO/tablaTienda.php?t=" + id + "&dl=1");
+                const contrasena = document.getElementById('pass').value;
+                const contrasenaUsuario = '<?php echo $password ?>';
+                if (contrasena == contrasenaUsuario){
+                    window.open("html/pages/PROYECTO/tablaTienda.php?t=" + id + "&dl=1");
+                }else{
+                    let advertencia = document.getElementById('advertencia');
+                    advertencia.innerHTML = "¡Datos incorrectos!";                   
+                }
             });
+
 
         };
         

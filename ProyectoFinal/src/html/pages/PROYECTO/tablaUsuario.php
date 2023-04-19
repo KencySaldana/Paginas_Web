@@ -20,11 +20,22 @@
         $idUsuario = $_GET["us"];
         $delete = $_GET["dl"];
         if ($delete){
+            addCambio($id_tienda);
             deleteUsuario($idUsuario);
         };
         deleteUsuario($idUsuario);
     };
     $r = mostrarUsuarios($id_tienda);
+
+    $user = $_SESSION['usuario'];
+
+    if($user =='Kency Saldaña'){
+        $password = 'admin';
+    }else{
+        $password = obtenerPassword($user); 
+    }
+
+    $nombreTienda = obtenerNombreTienda($id_tienda);
 ?> 
 
 <!DOCTYPE html>
@@ -69,51 +80,23 @@
                 <div class="nk-sidebar-element nk-sidebar-body">
                     <div class="nk-sidebar-content">
                         <div class="nk-sidebar-menu" data-simplebar>
+                        <!-- Menu -->
                         <ul class="nk-menu">
                                 <li class="nk-menu-heading">
-                                    <h6 class="overline-title text-primary-alt">Usuario</h6>
+                                    <h6 class="overline-title text-primary-alt">MENU</h6>
                                 </li>
                                 <!-- enlace a dashboard -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/dashboard.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
                                         <span class="nk-menu-text">Dashboard</span>
                                     </a>
                                 </li>
                                 <!-- enlace a categorias -->
                                 <li class="nk-menu-item">
                                     <a href="html/pages/PROYECTO/tablaCategorias.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                        <span class="nk-menu-icon"><em class="icon ni ni-grid-alt"></em></span>
                                         <span class="nk-menu-text">Categorías</span>
-                                    </a>
-                                </li>
-                                <!-- enlace a inventarios -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaInventario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Inventario</span>
-                                    </a>
-                                </li>
-                                <!-- enlace a usuarios -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaUsuario.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Usuarios</span>
-                                    </a>
-                                </li>
-                                <!-- enlace a realizar venta -->
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/realizarVenta.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Realizar venta</span>
-                                    </a>
-                                </li>
-                                <!-- enlace historial de ventas -->
-
-                                <li class="nk-menu-item">
-                                    <a href="html/pages/PROYECTO/tablaHistorialVentas.php?t=<?php echo($id_tienda);?>" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
-                                        <span class="nk-menu-text">Historial de ventas</span>
                                     </a>
                                 </li>
                                 
@@ -151,8 +134,8 @@
                                                 </div>
                                                 <div class="user-info d-none d-md-block">
                                                    
-                                                    <div class="user-status">SuperAdmin</div>  <!--TIPO DE USUARIO-->
-                                                    <div class="user-name dropdown-indicator">Nombre de usuario</div> <!--NOMBRE DE USUARIO-->
+                                                <div class="user-status">Admin</div>  <!--TIPO DE USUARIO-->
+                                                    <div class="user-name dropdown-indicator"><?php echo($user) ?></div> <!--NOMBRE DE USUARIO-->
                                                 </div>
                                             </div>
                                         </a>
@@ -163,15 +146,16 @@
                                                         <em class="icon ni ni-user-alt"></em> <!--icono-->
                                                     </div>
                                                     <div class="user-info">
-                                                        <span class="lead-text">Nombre de usuario</span> <!--NOMBRE DE USUARIO-->
-                                                        <span class="sub-text">correo</span> <!--CORREO-->
+                                                        <span class="lead-text"><?php echo($_SESSION['usuario']) ?></span> <!--NOMBRE DE USUARIO-->
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    <li><a href="html/pages/PROYECTO/login.php"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li> <!--CERRAR SESION-->
+                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -316,6 +300,10 @@
                 <div class="modal-body">
                         <center>
                             <h5>¿Está seguro que desea eliminar el usuario?</h5>
+                            <br>
+                            <label class="form-label" >Ingresa contraseña para validar:</label>
+                            <input type="password" class="form-control" id ="pass" name="pass" style="width: 200px;">
+                            <label class="form-label" id = "advertencia" style="color: red;"></label>
                         </center>
                 </div>
                 <div class="modal-footer ">
@@ -330,13 +318,21 @@
     <!-- JavaScript -->
     <script src="./assets/js/bundle.js?ver=3.1.3"></script>
     <script src="./assets/js/scripts.js?ver=3.1.3"></script>
+    <script src="./assets/js/example-sweetalert.js?ver=3.1.3"></script>
     <script> 
         function showModal(id_user, id_tienda) {
             $('#region').modal('show');
             const btnEliminar = document.querySelector('#btn');
 
             btnEliminar.addEventListener('click', (e)=>{
-                window.open("html/pages/PROYECTO/tablaUsuario.php?us=" + id + "&dl=1"+ "&t="+ id_tienda);
+                const contrasena = document.getElementById('pass').value;
+                const contrasenaUsuario = '<?php echo $password ?>';
+                if (contrasena == contrasenaUsuario){
+                    window.open("html/pages/PROYECTO/tablaUsuario.php?us=" + id_user + "&dl=1"+ "&t="+ id_tienda);
+                }else{
+                    let advertencia = document.getElementById('advertencia');
+                    advertencia.innerHTML = "¡Datos incorrectos!";                   
+                }
             });
 
         };
