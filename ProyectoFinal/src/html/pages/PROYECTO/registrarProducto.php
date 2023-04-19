@@ -17,13 +17,13 @@
     $id_tienda = $_GET['t'];
     //Se verifica si los datos fueron tomados
     if(isset($_POST['codigoProducto'])&& isset($_POST['nombreProducto'])&& isset($_POST['precioProducto'])&& isset($_POST['stockProducto'])){
+        
         addCambio($id_tienda);
         addProducto($_POST['codigoProducto'],$_POST['nombreProducto'],$_POST['precioProducto'],$_POST['stockProducto'],$_POST['categoriaProducto'],$id_tienda);
         
     }else{
         echo 'ERROR';
     };
-    $cantCategoria = cantCategorias($id_tienda);
     $result = obtenerCategoriasActivas($id_tienda);
 ?>
 
@@ -210,6 +210,11 @@
             return false;
             }
         });
+        const valor= document.getElementById('precioProducto').value;
+        if (parseFloat(valor)<=0) 
+        {
+            valid = false;
+        }
         // If all required fields are completed and at least one radio button is selected, submit the form
         if (valid) {
             Swal.fire({
