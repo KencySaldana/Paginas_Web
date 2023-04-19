@@ -316,10 +316,18 @@
 
 	function decrementar_stock($id_producto, $cantidad){
 		global $pdo;
+		$sql = "SELECT stock FROM productos WHERE id_producto = :id_producto";
+		$statement = $pdo->prepare($sql);
+		$statement->execute(['id_producto' => $id_producto]);
+		$stock = $statement->fetchColumn();
+		if ($stock >= $cantidad) { // Se verifica si hay suficiente stock para quitar la cantidad deseada
 		$sql = "UPDATE productos SET stock = stock - :cantidad WHERE id_producto = :id_producto";
 		$statement = $pdo->prepare($sql);
 		$statement->execute(['cantidad' => $cantidad, 'id_producto' => $id_producto]);
-	}
+		} else {
+		return false;
+		}
+		}
 	
 	
 
